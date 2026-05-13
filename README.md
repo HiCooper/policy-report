@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Policy Report - 政策解读投资分析平台
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个用于展示中国产业政策解读和投资机会分析的 React + TypeScript 应用。
 
-Currently, two official plugins are available:
+## 报告发布网站
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**在线访问**: [http://www.makemerich.top/policy-report/](http://www.makemerich.top/policy-report/)
 
-## React Compiler
+## 项目简介
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+本项目对国务院、工信部、发改委等官方发布的产业政策文件进行解读分析，从政策三步法（信息获取→阅读分析→匹配投资机会）、跟踪法（钱流向追踪+试点结果验证）、时间线演进到A股ETF/标的筛选，提供完整的分析工具。
 
-## Expanding the ESLint configuration
+## 技术栈
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18 + TypeScript
+- Vite (构建工具)
+- React Router (SPA 路由)
+- 政策报告支持子目录部署
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 本地开发
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# 安装依赖
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 启动开发服务器
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 构建部署
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# 构建生产版本
+npm run build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 部署脚本（需要配置远程服务器）
+./deploy.sh
 ```
+
+## 报告目录
+
+报告文件位于 `report/` 目录下，支持直接打开单个 HTML 报告文件进行查看。
+
+## 功能特点
+
+- SPA 单页应用架构
+- 支持静态报告子路径部署
+- 响应式设计
+- 投资机会智能分析
