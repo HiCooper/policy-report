@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import './index.css';
-import { reports, categories, type Report } from './data/reports';
+import './index.css'
+import { reports, categories, type Report } from './data/reports'
 
+// 报告卡片组件 - 直接在新窗口打开HTML报告
 function ReportCard({ report }: { report: Report }) {
-  // 使用 BASE_URL 处理子路径部署
-  const baseUrl = import.meta.env.BASE_URL;
-  const reportUrl = `${baseUrl.replace(/\/$/, '')}${report.file}`;
+  const baseUrl = import.meta.env.BASE_URL
+  const reportUrl = `${baseUrl.replace(/\/$/, '')}${report.file}`
   
+  const handleView = () => {
+    window.open(reportUrl, '_blank')
+  }
+
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
       <div className="p-6">
@@ -14,7 +17,12 @@ function ReportCard({ report }: { report: Report }) {
           <span className={`px-3 py-1 rounded-full text-xs font-medium ${
             report.category === '产业政策' ? 'bg-green-100 text-green-700' :
             report.category === '金融政策' ? 'bg-blue-100 text-blue-700' :
-            'bg-purple-100 text-purple-700'
+            report.category === '消费政策' ? 'bg-orange-100 text-orange-700' :
+            report.category === 'AI政策' ? 'bg-purple-100 text-purple-700' :
+            report.category === '低空经济' ? 'bg-cyan-100 text-cyan-700' :
+            report.category === '医药政策' ? 'bg-pink-100 text-pink-700' :
+            report.category === '数据政策' ? 'bg-indigo-100 text-indigo-700' :
+            'bg-gray-100 text-gray-700'
           }`}>
             {report.category}
           </span>
@@ -39,29 +47,22 @@ function ReportCard({ report }: { report: Report }) {
       </div>
       
       <div className="px-6 py-4 bg-gradient-to-r from-gray-50 to-transparent border-t border-gray-100">
-        <a 
-          href={reportUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <button 
+          onClick={handleView}
           className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-white rounded-xl font-medium hover:bg-primary-600 transition-colors"
         >
           <span>查看完整报告</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
-        </a>
+        </button>
       </div>
     </div>
-  );
+  )
 }
 
+// 主应用
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState('全部');
-
-  const filteredReports = selectedCategory === '全部' 
-    ? [...reports].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    : reports.filter(r => r.category === selectedCategory).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       <header className="bg-gradient-to-r from-primary to-blue-600 text-white">
@@ -91,26 +92,12 @@ function App() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-8">
-        <div className="flex gap-3 mb-8 flex-wrap">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full font-medium transition-all duration-200 ${
-                selectedCategory === cat
-                  ? 'bg-primary text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary border border-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredReports.map(report => (
-            <ReportCard key={report.id} report={report} />
-          ))}
+          {reports
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .map(report => (
+              <ReportCard key={report.id} report={report} />
+            ))}
         </div>
       </main>
 
@@ -118,7 +105,7 @@ function App() {
         <p>政策投资分析报告平台 · 数据来源：中国政府网、国家发改委、国家医保局等</p>
       </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

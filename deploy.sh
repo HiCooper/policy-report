@@ -22,7 +22,13 @@ echo -e "${YELLOW}📦 Building project...${NC}"
 cd /Users/xueancao/Projects/QoderProjects/make-me-rich/policy-report
 npm run build
 
-# Step 2: Upload to server using scp
+# Step 2: Copy report files to dist
+if [ -d "./report" ]; then
+  echo -e "${YELLOW}📋 Copying report files to dist...${NC}"
+  cp -r ./report ./dist/
+fi
+
+# Step 3: Upload to server using scp
 echo -e "${YELLOW}📤 Uploading to server...${NC}"
 scp -r -o StrictHostKeyChecking=no "$LOCAL_DIST/"* "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH/"
 

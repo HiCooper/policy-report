@@ -42,6 +42,16 @@ export const reports: Report[] = [
   },
   {
     id: 4,
+    title: '"人工智能+教育"行动计划',
+    date: '2026-04-10',
+    category: 'AI教育',
+    summary: '五部门联合推动AI+教育全学段覆盖，研发智能学伴，建设国家教育智能算力平台，2030年智慧教育新形态形成。',
+    file: '/report/人工智能+教育行动计划_投资解读.html',
+    tags: ['AI教育', '智慧教育', '智能学伴', '教育信息化'],
+    highlights: ['五部委联合', '全学段覆盖', '国家教育智能算力平台', '智能学伴研发']
+  },
+  {
+    id: 5,
     title: '智能体规范应用与创新发展实施意见',
     date: '2026-05-08',
     category: 'AI政策',
@@ -102,4 +112,4 @@ export const reports: Report[] = [
   }
 ];
 
-export const categories = ['全部', '产业政策', '金融政策', '消费政策', '低空经济', '医药政策', 'AI政策', '数据政策'];
+export const categories = ['全部', '产业政策', '金融政策', '消费政策', '低空经济', '医药政策', 'AI政策', 'AI教育', '数据政策'];
