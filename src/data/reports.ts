@@ -32,6 +32,16 @@ export const reports: Report[] = [
   },
   {
     id: 3,
+    title: '关于促进人工智能与能源双向赋能的行动方案',
+    date: '2026-05-08',
+    category: 'AI政策',
+    summary: '四部门联合推动算电协同，80%新建算力必须绿电，构建AI与能源双向赋能新格局。',
+    file: '/report/人工智能与能源双向赋能行动方案_投资解读.html',
+    tags: ['算电协同', '绿色算力', 'AI能源', '新能源基地'],
+    highlights: ['80%绿电要求', '四部委联合', '306家绿色算力设施', '2030双向赋能']
+  },
+  {
+    id: 4,
     title: '智能体规范应用与创新发展实施意见',
     date: '2026-05-08',
     category: 'AI政策',
@@ -41,7 +51,7 @@ export const reports: Report[] = [
     highlights: ['首部智能体顶层设计', 'AIP互联协议', '分类分级治理']
   },
   {
-    id: 4,
+    id: 5,
     title: '2026年无人机管理新规政策解读',
     date: '2026-05-01',
     category: '低空经济',
@@ -51,7 +61,7 @@ export const reports: Report[] = [
     highlights: ['实名登记激活机制', '运行识别规范', '北京全域管制空域', '核心部件17种管控']
   },
   {
-    id: 5,
+    id: 6,
     title: '2026年"模数共振"行动',
     date: '2026-04-28',
     category: 'AI政策',
@@ -61,7 +71,7 @@ export const reports: Report[] = [
     highlights: ['20个重点行业', '模数共振空间', '创新联合体']
   },
   {
-    id: 6,
+    id: 7,
     title: '关于更高水平更高质量做好节能降碳工作的意见',
     date: '2026-04-22',
     category: '产业政策',
@@ -71,7 +81,7 @@ export const reports: Report[] = [
     highlights: ['算力设施首入框架', '国家低碳转型基金', '零碳园区推广']
   },
   {
-    id: 7,
+    id: 8,
     title: '汽车数据出境安全指引（2026版）',
     date: '2026-01-30',
     category: '数据政策',
@@ -81,7 +91,7 @@ export const reports: Report[] = [
     highlights: ['九类豁免情形', '自贸区负面清单', '五类重要数据判定']
   },
   {
-    id: 8,
+    id: 9,
     title: '国务院办公厅关于健全药品价格形成机制的若干意见',
     date: '2026-04-14',
     category: '医药政策',

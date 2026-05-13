@@ -3,6 +3,10 @@ import './index.css';
 import { reports, categories, type Report } from './data/reports';
 
 function ReportCard({ report }: { report: Report }) {
+  // 使用 BASE_URL 处理子路径部署
+  const baseUrl = import.meta.env.BASE_URL;
+  const reportUrl = `${baseUrl.replace(/\/$/, '')}${report.file}`;
+  
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
       <div className="p-6">
@@ -36,7 +40,7 @@ function ReportCard({ report }: { report: Report }) {
       
       <div className="px-6 py-4 bg-gradient-to-r from-gray-50 to-transparent border-t border-gray-100">
         <a 
-          href={report.file} 
+          href={reportUrl} 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-white rounded-xl font-medium hover:bg-primary-600 transition-colors"
