@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【政策分析报告】产品碳足迹因子数据库建设工作指引 —— 碳管理体系新基建</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --warning: #dc2626;
+            --bg-light: #f6f5f4;
+            --bg-card: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #5e5c64;
+            --border: #deddda;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .report-header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .report-header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        
+        .report-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .report-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .policy-link, .reference-link {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 14px;
+        }
+        
+        .policy-link a, .reference-link a {
+            color: white;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+        
+        .policy-link a:hover, .reference-link a:hover {
+            opacity: 0.8;
+        }
+        
+        .reference-link .separator {
+            margin: 0 10px;
+            opacity: 0.5;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        h3 {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            margin-top: 28px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:hover {
+            background: var(--bg-light);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-teal { background: #ccfbf1; color: #065f46; }
+        
+        .priority-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .priority-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .priority-1 .priority-badge { background: #FFD700; color: #000; }
+        .priority-2 .priority-badge { background: #C0C0C0; color: #333; }
+        .priority-3 .priority-badge { background: #CD7F32; color: #fff; }
+        
+        .stock-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .stock-tag {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        
+        .risk-item {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .risk-item.medium { background: #fff3cd; border-left: 4px solid var(--accent); }
+        .risk-item.high { background: #f8d7da; border-left: 4px solid var(--warning); }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #ccfbf1 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 24px;
+        }
+        
+        .conclusion-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .conclusion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        
+        .conclusion-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .conclusion-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .checklist li.checked { background: #d4edda; }
+        .checklist li.current { background: #cce5ff; }
+        
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .checklist li.checked .check-box {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+        
+        .checklist li.current .check-box {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .report-footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .summary-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .summary-card.highlight {
+            border-left-color: var(--secondary);
+            background: #ecfdf5;
+        }
+        
+        .summary-card h4 {
+            margin: 0 0 8px 0;
+            color: var(--text-primary);
+        }
+        
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .keyword-item {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .keyword-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .keyword-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 1px solid #059669;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #065f46;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="report-header">
+            <h1>【政策分析报告】产品碳足迹因子数据库建设工作指引 —— 碳管理体系新基建</h1>
+            <div class="report-meta">
+                <span>📅 分析日期：2026-05-12</span>
+                <span>📆 发布日期：2025年12月5日</span>
+                <span>🏷️ 政策级别：七部门联合发布</span>
+            </div>
+            <div class="policy-link">
+                <span>📖 政策原文：</span>
+                <a href="https://www.nda.gov.cn/sjj/zwgk/zcfb/1216/20251215210946149064431_pc.html" target="_blank" rel="noopener noreferrer">《关于印发《产品碳足迹因子数据库建设工作指引》的通知》</a>
+            </div>
+            <div class="reference-link">
+                <span>📚 参考来源：</span>
+                <a href="http://paper.people.com.cn/zgnyb/pc/content/202512/22/content_30126889.html" target="_blank">[产品碳足迹因子数据库加速构建]</a>
+                <span class="separator">|</span>
+                <a href="https://sh.ccic.com/xwdt/tzgg/art/2026/art_50f518ff3939460b8250e00090ad48be.html" target="_blank">[《产品碳足迹因子数据库建设工作指引》政策导读]</a>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content-card">
+            
+            <!-- Section 1: Policy Analysis -->
+            <div class="section">
+                <h2><span class="section-icon">1</span>政策三步法解读</h2>
+                
+                <h3>1.1 信息获取摘要</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>🔵 政策定位</h4>
+                        <p>七部门联合发布，碳足迹管理体系基础数据库建设指引</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>🟢 核心主线</h4>
+                        <p>多方共建+统一规范+国际衔接</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>🎯 核心目标</h4>
+                        <p>2027年初构建，2030年建成国际影响力强的数据库</p>
+                    </div>
+                </div>
+                
+                <h3>1.2 阅读分析</h3>
+                <h4>从上往下看结论</h4>
+                <p style="margin-bottom: 20px;">✅ <strong>七部委联合推动碳足迹数据基础设施建设，绿色低碳赛道再获政策加码</strong></p>
+                
+                <div class="highlight-box">
+                    <h4>📊 核心数据亮点</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>重点领域：</strong>基础能源、大宗商品、原材料、交通运输</li>
+                        <li><strong>数据机制：</strong>多方报送+国家整合+统一发布+动态反馈</li>
+                        <li><strong>技术标准：</strong>GB/T 24067-2024生命周期评价标准</li>
+                        <li><strong>AI应用：</strong>鼓励AI技术提升数据库建设效率</li>
+                    </ul>
+                </div>
+                
+                <h4>关键词提取</h4>
+                <div class="keyword-grid">
+                    <div class="keyword-item">
+                        <div class="keyword-label">核心词</div>
+                        <div class="keyword-value">碳足迹因子</div>
+                        <small style="color: var(--primary);">数据库基础</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">方法论</div>
+                        <div class="keyword-value">生命周期评价</div>
+                        <small style="color: var(--secondary);">LCA方法</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">共建词</div>
+                        <div class="keyword-value">多方协同</div>
+                        <small style="color: #059669;">共享机制</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">国际词</div>
+                        <div class="keyword-value">国际互认</div>
+                        <small style="color: var(--secondary);">碳关税应对</small>
+                    </div>
+                </div>
+                
+                <h4>关键差异对比</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>对比维度</th>
+                            <th>前期政策</th>
+                            <th>本次工作指引</th>
+                            <th>变化信号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>建设主体</td>
+                            <td>政府主导</td>
+                            <td>多方共建（政府+行业+企业）</td>
+                            <td><span class="badge badge-green">开放共建</span></td>
+                        </tr>
+                        <tr>
+                            <td>数据标准</td>
+                            <td>分散标准</td>
+                            <td>统一命名/分类/编码体系</td>
+                            <td><span class="badge badge-green">规范化</span></td>
+                        </tr>
+                        <tr>
+                            <td>技术应用</td>
+                            <td>传统方法</td>
+                            <td>AI技术+可信数据空间</td>
+                            <td><span class="badge badge-teal">技术创新</span></td>
+                        </tr>
+                        <tr>
+                            <td>国际衔接</td>
+                            <td>缺乏机制</td>
+                            <td>数据互认+国际标准参与</td>
+                            <td><span class="badge badge-green">主动对接</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>1.3 政策阶段判断</h3>
+                <ul class="checklist">
+                    <li class="checked"><span class="check-box">✓</span><span>战略酝酿期</span></li>
+                    <li class="checked"><span class="check-box">✓</span><span>体系框架建设期</span></li>
+                    <li class="current"><span class="check-box">▶</span><span><strong>全面落地执行期（当前阶段）</strong></span><span class="badge badge-blue">当前</span></li>
+                    <li><span class="check-box"></span><span>成果验收进阶期</span></li>
+                </ul>
+            </div>
+            
+            <!-- Section 2: Tracking Method -->
+            <div class="section">
+                <h2><span class="section-icon">2</span>跟踪法投资信号</h2>
+                
+                <h3>2.1 信号一：钱流向</h3>
+                <table>
+                    <thead>
+                        <tr><th>通道</th><th>数据来源</th><th>预期规模</th><th>落地判断</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>碳足迹核算服务</strong></td>
+                            <td>企业碳足迹核算需求</td>
+                            <td>出口企业+上市公司</td>
+                            <td><span class="badge badge-green">✅ 需求明确</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>绿色金融</strong></td>
+                            <td>绿色采购+绿色金融应用</td>
+                            <td>优质数据纳入绿色金融</td>
+                            <td><span class="badge badge-green">✅ 政策支持</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>碳数据服务</strong></td>
+                            <td>数据库开发+数据服务</td>
+                            <td>数据服务商+AI公司</td>
+                            <td><span class="badge badge-green">✅ 赛道明确</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>国际碳互认</strong></td>
+                            <td>碳关税应对+出口合规</td>
+                            <td>外贸企业+认证机构</td>
+                            <td><span class="badge badge-orange">⏳ 机制建设中</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>2.2 信号二：试点结果</h3>
+                <table>
+                    <thead>
+                        <tr><th>试点领域</th><th>代表项目</th><th>完成情况</th><th>推广信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>重点产品碳足迹</td>
+                            <td>100个重点产品核算规则</td>
+                            <td><span class="badge badge-green">推进中</span></td>
+                            <td>出口导向型企业</td>
+                        </tr>
+                        <tr>
+                            <td>数据库试点</td>
+                            <td>地方/行业数据库建设</td>
+                            <td><span class="badge badge-orange">试点中</span></td>
+                            <td>多方参与机制</td>
+                        </tr>
+                        <tr>
+                            <td>国际互认</td>
+                            <td>数据转换机制探索</td>
+                            <td><span class="badge badge-orange">探索中</span></td>
+                            <td>碳关税应对</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Section 3: Timeline -->
+            <div class="section">
+                <h2><span class="section-icon">3</span>时间线演进与板块复盘</h2>
+                
+                <h3>3.1 政策时间线</h3>
+                <table>
+                    <thead>
+                        <tr><th>时间</th><th>事件</th><th>产业意义</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>2024.06</strong></td><td>《关于建立碳足迹管理体系的实施方案》</td><td>碳足迹管理体系顶层设计</td></tr>
+                        <tr><td><strong>2024.07</strong></td><td>GB/T 24067-2024标准发布</td><td>产品碳足迹量化标准</td></tr>
+                        <tr><td><strong>2025.12</strong></td><td>七部门联合发布工作指引</td><td>数据库建设落地</td></tr>
+                        <tr><td><strong>2027年</strong></td><td>初步构建碳足迹因子数据库</td><td>第一阶段目标</td></tr>
+                        <tr><td><strong>2030年</strong></td><td>建成国际影响力强的数据库</td><td>最终目标</td></tr>
+                    </tbody>
+                </table>
+                
+                <h3>3.2 A股板块趋势复盘</h3>
+                <table>
+                    <thead>
+                        <tr><th>阶段</th><th>时间区间</th><th>领涨细分</th><th>业绩增速</th><th>资金行为</th><th>估值</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-teal">概念期</span></td>
+                            <td>2024-2025</td>
+                            <td>碳核算、ESG服务</td>
+                            <td>预期驱动</td>
+                            <td>游资活跃</td>
+                            <td>高弹性</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-green">政策期</span></td>
+                            <td>2025-2026</td>
+                            <td>碳数据服务、AI+碳管理</td>
+                            <td>订单释放</td>
+                            <td>机构布局</td>
+                            <td>估值修复</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-blue">业绩期</span></td>
+                            <td>2027-</td>
+                            <td>碳咨询、碳认证</td>
+                            <td>兑现中</td>
+                            <td>公募重仓</td>
+                            <td>合理区间</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Section 4: ETF & Stock -->
+            <div class="section">
+                <h2><span class="section-icon">4</span>ETF与核心标的匹配</h2>
+                
+                <h3>4.1 ETF推荐列表</h3>
+                <table>
+                    <thead>
+                        <tr><th>ETF代码</th><th>名称</th><th>匹配度</th><th>规模</th><th>近20日净流入</th><th>操作建议</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>159990</td>
+                            <td>大数据ETF</td>
+                            <td><span class="badge badge-teal">高</span></td>
+                            <td>-</td>
+                            <td>关注</td>
+                            <td><strong>重点关注</strong></td>
+                        </tr>
+                        <tr>
+                            <td>515980</td>
+                            <td>人工智能ETF</td>
+                            <td><span class="badge badge-green">高</span></td>
+                            <td>-</td>
+                            <td>净流入</td>
+                            <td><strong>重点关注</strong></td>
+                        </tr>
+                        <tr>
+                            <td>512580</td>
+                            <td>碳中和ETF</td>
+                            <td><span class="badge badge-green">高</span></td>
+                            <td>-</td>
+                            <td>关注</td>
+                            <td><strong>配置</strong></td>
+                        </tr>
+                        <tr>
+                            <td>516950</td>
+                            <td>绿色电力ETF</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>-</td>
+                            <td>观察</td>
+                            <td>关注</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>4.2 最直接受益标的（优先级排序）</h3>
+                
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">🥇</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：碳数据服务商+AI碳管理</h4>
+                        <p><strong>受益逻辑：</strong>政策明确AI技术应用于碳足迹数据库，数据服务商和AI公司直接受益</p>
+                        <p><strong>核心催化：</strong>企业碳足迹核算需求爆发</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">碳数据服务</span>
+                            <span class="stock-tag">AI+碳管理</span>
+                            <span class="stock-tag">碳核算SaaS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">🥇</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：碳认证与核查机构</h4>
+                        <p><strong>受益逻辑：</strong>多方报送+国家整合机制，数据认证和核查需求增加</p>
+                        <p><strong>核心催化：</strong>碳足迹认证制度建立</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">碳认证</span>
+                            <span class="stock-tag">碳核查</span>
+                            <span class="stock-tag">第三方审核</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-2">
+                    <div class="priority-badge">🥈</div>
+                    <div class="priority-content">
+                        <h4>第二优先级：出口导向型企业</h4>
+                        <p><strong>受益逻辑：</strong>应对欧盟碳关税，数据互认机制降低合规成本</p>
+                        <p><strong>核心催化：</strong>国际碳标准衔接</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">出口企业</span>
+                            <span class="stock-tag">新能源车企</span>
+                            <span class="stock-tag">电池行业</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-3">
+                    <div class="priority-badge">🥉</div>
+                    <div class="priority-content">
+                        <h4>第三优先级：绿色金融相关</h4>
+                        <p><strong>受益逻辑：</strong>优质碳数据纳入绿色金融应用场景</p>
+                        <p><strong>核心催化：</strong>绿色信贷+绿色采购</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">ESG</span>
+                            <span class="stock-tag">绿色金融</span>
+                            <span class="stock-tag">碳资产</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 5: Risk -->
+            <div class="section">
+                <h2><span class="section-icon">5</span>风险提示</h2>
+                
+                <div class="risk-grid">
+                    <div class="risk-item medium">
+                        <div class="risk-label">国际规则变化</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等风险</span>
+                        <p style="margin-top:8px;font-size:13px;">欧盟碳关税规则持续更新</p>
+                    </div>
+                    <div class="risk-item medium">
+                        <div class="risk-label">数据质量</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等风险</span>
+                        <p style="margin-top:8px;font-size:13px;">数据标准化进度</p>
+                    </div>
+                    <div class="risk-item high">
+                        <div class="risk-label">企业配合度</div>
+                        <span class="risk-status" style="background: #f8d7da; color: #721c24;">🔴 较高风险</span>
+                        <p style="margin-top:8px;font-size:13px;">中小企业碳核算能力</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="conclusion-box">
+                <h3>🎯 核心结论</h3>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--secondary); color: white;">1</span>
+                    <div><strong>政策力度：</strong>七部委联合，2027年初建+2030年建成的明确时间表</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--primary); color: white;">2</span>
+                    <div><strong>最超预期亮点：</strong>AI技术应用+国际互认机制+绿色金融应用场景</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #059669; color: white;">3</span>
+                    <div><strong>最佳投资窗口：</strong>2026-2027年是布局碳数据服务的黄金窗口</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #6c757d; color: white;">4</span>
+                    <div><strong>首选配置：</strong>大数据ETF（159990）+ 人工智能ETF（515980）+ 碳中和ETF（512580）</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="report-footer">
+            <p><strong>声明：</strong>本报告仅为分析框架展示，不构成任何投资建议。投资者应独立决策，自负盈亏。</p>
+        </div>
+    </div>
+</body>
+</html>
