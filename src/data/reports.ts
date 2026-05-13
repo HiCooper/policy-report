@@ -12,6 +12,16 @@ export interface Report {
 export const reports: Report[] = [
   {
     id: 1,
+    title: '《国家数字经济创新发展试验区建设方案》复函',
+    date: '2025-10-15',
+    category: '数据政策',
+    summary: '国家数据局正式批复7个试验区，158项改革事项拉开数据要素市场化改革大幕。动态评估+适时推广机制，复制速度超预期。',
+    file: '/report/国家数字经济创新发展试验区建设方案_投资解读.html',
+    tags: ['数字经济', '数据要素', '试验区', '区域改革'],
+    highlights: ['七省市联动', '158项改革', '动态评估机制', '快速复制推广']
+  },
+  {
+    id: 2,
     title: '《产品碳足迹因子数据库建设工作指引》印发',
     date: '2025-12-15',
     category: '碳政策',
@@ -21,7 +31,7 @@ export const reports: Report[] = [
     highlights: ['七部委联合', 'AI技术应用', '国际互认机制', '绿色金融应用']
   },
   {
-    id: 2,
+    id: 3,
     title: '国务院办公厅关于印发《加快培育服务消费新增长点工作方案》的通知',
     date: '2026-01-29',
     category: '消费政策',
@@ -31,7 +41,7 @@ export const reports: Report[] = [
     highlights: ['消费基础设施REITs破冰', '77国免签入境+30.7%', '体验式消费两位数增长']
   },
   {
-    id: 3,
+    id: 4,
     title: '中国人民银行报告：适度宽松的货币政策效果持续显现',
     date: '2026-05-11',
     category: '金融政策',
@@ -41,7 +51,7 @@ export const reports: Report[] = [
     highlights: ['养老贷款增长26.3%', '科技创新再贷款1.2万亿', '结构性工具加码']
   },
   {
-    id: 4,
+    id: 5,
     title: '关于促进人工智能与能源双向赋能的行动方案',
     date: '2026-05-08',
     category: 'AI政策',
@@ -51,7 +61,7 @@ export const reports: Report[] = [
     highlights: ['80%绿电要求', '四部委联合', '306家绿色算力设施', '2030双向赋能']
   },
   {
-    id: 5,
+    id: 6,
     title: '"人工智能+教育"行动计划',
     date: '2026-04-10',
     category: 'AI教育',
@@ -61,7 +71,7 @@ export const reports: Report[] = [
     highlights: ['五部委联合', '全学段覆盖', '国家教育智能算力平台', '智能学伴研发']
   },
   {
-    id: 6,
+    id: 7,
     title: '智能体规范应用与创新发展实施意见',
     date: '2026-05-08',
     category: 'AI政策',
@@ -71,7 +81,7 @@ export const reports: Report[] = [
     highlights: ['首部智能体顶层设计', 'AIP互联协议', '分类分级治理']
   },
   {
-    id: 7,
+    id: 8,
     title: '2026年无人机管理新规政策解读',
     date: '2026-05-01',
     category: '低空经济',
@@ -81,7 +91,7 @@ export const reports: Report[] = [
     highlights: ['实名登记激活机制', '运行识别规范', '北京全域管制空域', '核心部件17种管控']
   },
   {
-    id: 8,
+    id: 9,
     title: '2026年"模数共振"行动',
     date: '2026-04-28',
     category: 'AI政策',
@@ -91,7 +101,7 @@ export const reports: Report[] = [
     highlights: ['20个重点行业', '模数共振空间', '创新联合体']
   },
   {
-    id: 9,
+    id: 10,
     title: '关于更高水平更高质量做好节能降碳工作的意见',
     date: '2026-04-22',
     category: '产业政策',
@@ -101,7 +111,7 @@ export const reports: Report[] = [
     highlights: ['算力设施首入框架', '国家低碳转型基金', '零碳园区推广']
   },
   {
-    id: 10,
+    id: 11,
     title: '汽车数据出境安全指引（2026版）',
     date: '2026-01-30',
     category: '数据政策',
@@ -111,7 +121,7 @@ export const reports: Report[] = [
     highlights: ['九类豁免情形', '自贸区负面清单', '五类重要数据判定']
   },
   {
-    id: 11,
+    id: 12,
     title: '国务院办公厅关于健全药品价格形成机制的若干意见',
     date: '2026-04-14',
     category: '医药政策',
