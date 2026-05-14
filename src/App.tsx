@@ -11,9 +11,12 @@ function ReportCard({ report }: { report: Report }) {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-4">
+    <div 
+      data-track-id={`report-card-${report.id}`}
+      className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
+      >
+        <div className="p-6">
+          <div className="flex items-start justify-between mb-4">
           <span className={`px-3 py-1 rounded-full text-xs font-medium ${
             report.category === '产业政策' ? 'bg-green-100 text-green-700' :
             report.category === '金融政策' ? 'bg-blue-100 text-blue-700' :
