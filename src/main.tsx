@@ -4,9 +4,13 @@ import './index.css'
 import App from './App.tsx'
 import { Tracker } from '@gate-flow/tracker-sdk'
 
+// Tracker 端点 - 支持环境变量配置
+const TRACKER_ENDPOINT = import.meta.env.VITE_TRACKER_ENDPOINT || '/api/v1/collect'
+const APP_ID = import.meta.env.VITE_APP_ID || 'policy-report'
+
 const tracker = new Tracker({
-  endpoint: 'http://localhost:8081/api/v1/collect',
-  appId: 'policy-report',
+  endpoint: TRACKER_ENDPOINT,
+  appId: APP_ID,
   autoTrack: {
     pageView: true,
     click: true,
