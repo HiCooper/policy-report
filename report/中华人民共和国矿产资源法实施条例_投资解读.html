@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【政策分析报告】中华人民共和国矿产资源法实施条例 —— 矿业高质量发展新框架</title>
+    <style>
+        :root {
+            --primary: #b45309;
+            --secondary: #d97706;
+            --accent: #f59e0b;
+            --warning: #dc2626;
+            --bg-light: #fffbeb;
+            --bg-card: #ffffff;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --border: #e7e5e4;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .report-header {
+            background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .report-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        
+        .report-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .report-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .policy-link, .reference-link {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 14px;
+        }
+        
+        .policy-link a, .reference-link a {
+            color: white;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+        
+        .policy-link a:hover, .reference-link a:hover {
+            opacity: 0.8;
+        }
+        
+        .reference-link .separator {
+            margin: 0 10px;
+            opacity: 0.5;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        
+        h3 {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            margin-top: 28px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:hover {
+            background: var(--bg-light);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-amber { background: #fef3c7; color: #92400e; }
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-orange { background: #ffedd5; color: #9a3412; }
+        .badge-green { background: #d1fae5; color: #065f46; }
+        
+        .priority-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .priority-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .priority-1 .priority-badge { background: #FFD700; color: #000; }
+        .priority-2 .priority-badge { background: #C0C0C0; color: #333; }
+        .priority-3 .priority-badge { background: #CD7F32; color: #fff; }
+        
+        .stock-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .stock-tag {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        
+        .risk-item {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .risk-item.medium { background: #fff3cd; border-left: 4px solid var(--accent); }
+        .risk-item.high { background: #f8d7da; border-left: 4px solid var(--warning); }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 24px;
+        }
+        
+        .conclusion-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .conclusion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        
+        .conclusion-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .conclusion-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .checklist li.checked { background: #d1fae5; }
+        .checklist li.current { background: #fef3c7; }
+        
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .checklist li.checked .check-box {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+        
+        .checklist li.current .check-box {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .report-footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .mineral-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .mineral-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 100%);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #fbbf24;
+        }
+        
+        .mineral-card strong {
+            color: var(--primary);
+            font-size: 15px;
+        }
+        
+        .mineral-card p {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="report-header">
+            <h1>【政策分析报告】中华人民共和国矿产资源法实施条例 —— 矿业高质量发展新框架</h1>
+            <div class="report-meta">
+                <span>📅 分析日期：2026-05-20</span>
+                <span>📆 发布日期：2026年5月20日</span>
+                <span>📅 施行日期：2026年6月15日</span>
+            </div>
+            <div class="policy-link">
+                <span>📖 政策原文：</span>
+                <a href="https://www.gov.cn/zhengce/content/202605/content_7069679.htm" target="_blank" rel="noopener noreferrer">《中华人民共和国矿产资源法实施条例》（国令第839号）</a>
+            </div>
+            <div class="reference-link">
+                <span>📚 参考来源：</span>
+                <a href="https://www.gov.cn/zhengce/xxgk/index.htm" target="_blank">[国务院政策文件库]</a>
+                <span class="separator">|</span>
+                <a href="https://www.mnr.gov.cn/" target="_blank">[自然资源部]</a>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content-card">
+            
+            <!-- Section 1: Policy Analysis -->
+            <div class="section">
+                <h2><span class="section-icon">1</span>政策三步法解读</h2>
+                
+                <h3>1.1 信息获取摘要</h3>
+                <div class="mineral-grid">
+                    <div class="mineral-card">
+                        <strong>战略性矿产</strong>
+                        <p>探产供储销全链条统筹</p>
+                    </div>
+                    <div class="mineral-card">
+                        <strong>竞争性出让</strong>
+                        <p>招标、拍卖、挂牌</p>
+                    </div>
+                    <div class="mineral-card">
+                        <strong>国际合作</strong>
+                        <p>平等互利、合作共赢</p>
+                    </div>
+                    <div class="mineral-card">
+                        <strong>生态修复</strong>
+                        <p>矿区生态修复要求</p>
+                    </div>
+                </div>
+                
+                <h3>1.2 阅读分析</h3>
+                <h4>从上往下看结论</h4>
+                <p style="margin-bottom: 20px;">✅ <strong>国务院颁布矿产资源法实施条例，强化战略性矿产资源全链条管理，推动矿业高质量发展，保障国家矿产资源安全</strong></p>
+                
+                <div class="highlight-box">
+                    <h4>📊 核心政策亮点</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>全链条统筹：</strong>探产供储销全链条统筹和衔接体系</li>
+                        <li><strong>政策支持：</strong>财政、金融、土地、生态环境、产业、进出口等政策</li>
+                        <li><strong>竞争性出让：</strong>矿业权通过招标、拍卖、挂牌等竞争性方式出让</li>
+                        <li><strong>国际合作：</strong>促进矿产资源领域国际投资、贸易、技术合作</li>
+                        <li><strong>生态修复：</strong>矿区生态修复纳入法规要求</li>
+                        <li><strong>安全保障：</strong>急需战略矿产可由省级政府直接授予采矿权</li>
+                    </ul>
+                </div>
+                
+                <h4>关键差异对比</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>对比维度</th>
+                            <th>前期政策</th>
+                            <th>本次实施条例</th>
+                            <th>变化信号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>战略矿产管理</td>
+                            <td>分散管理</td>
+                            <td>全链条统筹+多部门协同</td>
+                            <td><span class="badge badge-amber">系统性升级</span></td>
+                        </tr>
+                        <tr>
+                            <td>矿业权出让</td>
+                            <td>协议为主</td>
+                            <td>竞争性方式为主</td>
+                            <td><span class="badge badge-amber">市场化</span></td>
+                        </tr>
+                        <tr>
+                            <td>国际合作</td>
+                            <td>有限开放</td>
+                            <td>平等互利、合作共赢</td>
+                            <td><span class="badge badge-green">开放升级</span></td>
+                        </tr>
+                        <tr>
+                            <td>生态保护</td>
+                            <td>被动修复</td>
+                            <td>主动修复+全生命周期</td>
+                            <td><span class="badge badge-blue">强化管理</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>1.3 政策阶段判断</h3>
+                <ul class="checklist">
+                    <li class="checked"><span class="check-box">✓</span><span>战略酝酿期</span></li>
+                    <li class="checked"><span class="check-box">✓</span><span>体系框架建设期</span></li>
+                    <li class="current"><span class="check-box">▶</span><span><strong>全面落地执行期（2026年6月15日起）</strong></span><span class="badge badge-amber">即将实施</span></li>
+                    <li><span class="check-box"></span><span>成果验收进阶期</span></li>
+                </ul>
+            </div>
+            
+            <!-- Section 2: Tracking Method -->
+            <div class="section">
+                <h2><span class="section-icon">2</span>跟踪法投资信号</h2>
+                
+                <h3>2.1 信号一：钱流向</h3>
+                <table>
+                    <thead>
+                        <tr><th>通道</th><th>数据来源</th><th>预期规模</th><th>落地判断</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>战略性矿产勘查</strong></td>
+                            <td>国家专项资金+地方配套</td>
+                            <td>千亿级</td>
+                            <td><span class="badge badge-amber">✅ 政策明确</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>矿业权出让收益</strong></td>
+                            <td>招标拍卖挂牌</td>
+                            <td>百亿级/年</td>
+                            <td><span class="badge badge-amber">✅ 市场启动</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>海外矿产开发</strong></td>
+                            <td>一带一路+国际合作</td>
+                            <td>千亿级</td>
+                            <td><span class="badge badge-green">✅ 政策支持</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>生态修复</strong></td>
+                            <td>矿区生态修复</td>
+                            <td>百亿级</td>
+                            <td><span class="badge badge-blue">✅ 强制要求</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>2.2 信号二：试点结果</h3>
+                <table>
+                    <thead>
+                        <tr><th>试点领域</th><th>代表项目</th><th>完成情况</th><th>推广信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>战略矿产目录</td>
+                            <td>战略矿产资源目录</td>
+                            <td><span class="badge badge-amber">制定中</span></td>
+                            <td>待国务院批准后公布</td>
+                        </tr>
+                        <tr>
+                            <td>矿业权竞争性出让</td>
+                            <td>各省市矿权出让</td>
+                            <td><span class="badge badge-green">推进中</span></td>
+                            <td>市场化加速</td>
+                        </tr>
+                        <tr>
+                            <td>矿区生态修复</td>
+                            <td>矿山生态修复示范</td>
+                            <td><span class="badge badge-blue">推进中</span></td>
+                            <td>全覆盖要求</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Section 3: Timeline -->
+            <div class="section">
+                <h2><span class="section-icon">3</span>时间线演进与板块复盘</h2>
+                
+                <h3>3.1 政策时间线</h3>
+                <table>
+                    <thead>
+                        <tr><th>时间</th><th>事件</th><th>产业意义</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1986年</strong></td><td>《矿产资源法》首次颁布</td><td>矿产管理法制化起点</td></tr>
+                        <tr><td><strong>2020年</strong></td><td>矿产资源法修订启动</td><td>适应新时代要求</td></tr>
+                        <tr><td><strong>2024年</strong></td><td>矿产资源法修订通过</td><td>顶层法律更新</td></tr>
+                        <tr><td><strong>2026年5月</strong></td><td>实施条例发布</td><td>实施细则落地</td></tr>
+                        <tr><td><strong>2026年6月</strong></td><td>条例正式施行</td><td>全面执行</td></tr>
+                    </tbody>
+                </table>
+                
+                <h3>3.2 A股板块趋势复盘</h3>
+                <table>
+                    <thead>
+                        <tr><th>阶段</th><th>时间区间</th><th>领涨细分</th><th>业绩增速</th><th>资金行为</th><th>估值</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-amber">政策期</span></td>
+                            <td>2024-2026</td>
+                            <td>战略矿产、矿业服务</td>
+                            <td>预期驱动</td>
+                            <td>机构布局</td>
+                            <td>估值修复</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-green">执行期</span></td>
+                            <td>2026-2027</td>
+                            <td>矿产开采、矿业设备</td>
+                            <td>订单释放</td>
+                            <td>公募加仓</td>
+                            <td>合理区间</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-blue">业绩期</span></td>
+                            <td>2028-</td>
+                            <td>全产业链龙头</td>
+                            <td>兑现期</td>
+                            <td>重仓持有</td>
+                            <td>稳定区间</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Section 4: ETF & Stock -->
+            <div class="section">
+                <h2><span class="section-icon">4</span>ETF与核心标的匹配</h2>
+                
+                <h3>4.1 ETF推荐列表</h3>
+                <table>
+                    <thead>
+                        <tr><th>ETF代码</th><th>名称</th><th>匹配度</th><th>规模</th><th>近20日净流入</th><th>操作建议</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>159618</td>
+                            <td>资源ETF</td>
+                            <td><span class="badge badge-amber">高</span></td>
+                            <td>-</td>
+                            <td>关注</td>
+                            <td><strong>重点配置</strong></td>
+                        </tr>
+                        <tr>
+                            <td>516950</td>
+                            <td>绿色电力ETF</td>
+                            <td><span class="badge badge-amber">高</span></td>
+                            <td>-</td>
+                            <td>净流入</td>
+                            <td><strong>配置</strong></td>
+                        </tr>
+                        <tr>
+                            <td>512580</td>
+                            <td>碳中和ETF</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>-</td>
+                            <td>观察</td>
+                            <td>关注</td>
+                        </tr>
+                        <tr>
+                            <td>159819</td>
+                            <td>数字经济ETF</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>-</td>
+                            <td>关注</td>
+                            <td>观察</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>4.2 最直接受益标的（优先级排序）</h3>
+                
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">🥇</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：战略性矿产龙头</h4>
+                        <p><strong>受益逻辑：</strong>战略矿产全链条管理，勘查、开采、加工、贸易、储备全覆盖</p>
+                        <p><strong>核心催化：</strong>战略矿产资源目录出台</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">稀土</span>
+                            <span class="stock-tag">锂矿</span>
+                            <span class="stock-tag">钴镍</span>
+                            <span class="stock-tag">铜矿</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">🥇</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：矿业服务企业</h4>
+                        <p><strong>受益逻辑：</strong>竞争性出让推动矿业权交易活跃，地质勘查服务需求增加</p>
+                        <p><strong>核心催化：</strong>矿业权出让公告增加</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">地质勘查</span>
+                            <span class="stock-tag">矿业咨询</span>
+                            <span class="stock-tag">矿权交易</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-2">
+                    <div class="priority-badge">🥈</div>
+                    <div class="priority-content">
+                        <h4>第二优先级：矿业设备</h4>
+                        <p><strong>受益逻辑：</strong>开采活动增加，设备需求上升</p>
+                        <p><strong>核心催化：</strong>新建矿山+扩产</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">采矿设备</span>
+                            <span class="stock-tag">选矿设备</span>
+                            <span class="stock-tag">矿山机械</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="priority-item priority-3">
+                    <div class="priority-badge">🥉</div>
+                    <div class="priority-content">
+                        <h4>第三优先级：矿山生态修复</h4>
+                        <p><strong>受益逻辑：</strong>矿区生态修复强制要求，修复市场规模扩大</p>
+                        <p><strong>核心催化：</strong>生态修复标准出台</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">生态修复</span>
+                            <span class="stock-tag">环境治理</span>
+                            <span class="stock-tag">土地复垦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 5: Risk -->
+            <div class="section">
+                <h2><span class="section-icon">5</span>风险提示</h2>
+                
+                <div class="risk-grid">
+                    <div class="risk-item medium">
+                        <div class="risk-label">国际价格波动</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等风险</span>
+                        <p style="margin-top:8px;font-size:13px;">大宗矿产品价格波动</p>
+                    </div>
+                    <div class="risk-item medium">
+                        <div class="risk-label">环保政策</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等风险</span>
+                        <p style="margin-top:8px;font-size:13px;">环保要求持续提升</p>
+                    </div>
+                    <div class="risk-item high">
+                        <div class="risk-label">海外投资</div>
+                        <span class="risk-status" style="background: #f8d7da; color: #721c24;">🔴 较高风险</span>
+                        <p style="margin-top:8px;font-size:13px;">地缘政治风险</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="conclusion-box">
+                <h3>🎯 核心结论</h3>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--secondary); color: white;">1</span>
+                    <div><strong>政策力度：</strong>国务院令第839号，矿产资源法实施条例全面落地，2026年6月15日起施行</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--primary); color: white;">2</span>
+                    <div><strong>最超预期亮点：</strong>战略性矿产全链条统筹+竞争性出让+国际合作三维升级</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #d97706; color: white;">3</span>
+                    <div><strong>最佳投资窗口：</strong>2026年下半年是布局矿业全产业链的黄金窗口</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #6c757d; color: white;">4</span>
+                    <div><strong>首选配置：</strong>资源ETF（159618）+ 绿色电力ETF（516950）+ 碳中和ETF（512580）</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="report-footer">
+            <p><strong>声明：</strong>本报告仅为分析框架展示，不构成任何投资建议。投资者应独立决策，自负盈亏。</p>
+        </div>
+    </div>
+</body>
+</html>
