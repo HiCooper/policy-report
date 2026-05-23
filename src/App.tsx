@@ -107,7 +107,7 @@ function App() {
             </div>
             {/* GitHub 跳转入口 */}
             <a
-              href="https://github.com/HiCooper/make-me-rich"
+              href="https://github.com/HiCooper/policy-report"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
