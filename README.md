@@ -1,10 +1,37 @@
 # Policy Report - 政策解读投资分析平台
 
+> 本平台展示的政策分析报告由 [china-policy-investment-analyzer](https://github.com/HiCooper/agents-silky/tree/main/skills/china-policy-investment-analyzer) Skill 自动生成。
+
+---
+
+## 报告生成工具
+
+**Skill 仓库**: [agents-silky](https://github.com/HiCooper/agents-silky/tree/main/skills)
+
+### Skill 简介
+
+`china-policy-investment-analyzer` 是一款中国产业政策投资分析工具，专为私募基金/家族办公室设计，提供：
+
+- **政策三步法**：从政府文件获取 → 结构化阅读分析 → 匹配投资机会
+- **跟踪法**：追踪资金流向（中央预算/专项债/一级市场）和试点结果验证
+- **时间线演进**：政策生命周期梳理 + A股板块趋势复盘
+- **ETF筛选**：从主题相关性、规模流动性、资金流向等维度筛选最佳标的
+
+### 使用方式
+
+触发关键词：`政策解读`、`产业政策分析`、`ETF筛选`、`投资机会`、`A股分析`
+
+在 Qoder 中对话时，发送政策文件 URL 或标题即可自动生成四段式分析报告（政策解读→资金追踪→时间线→ETF匹配）。
+
+---
+
+## 项目简介
+
 一个用于展示中国产业政策解读和投资机会分析的 React + TypeScript 应用。
 
 ## 报告发布网站
 
-**在线访问**: [https://hicooper.github.io/](https://hicooper.github.io/policy-report/)
+**在线访问**: [https://hicooper.github.io/policy-report](https://hicooper.github.io/policy-report/)
 
 ## 项目简介
 
