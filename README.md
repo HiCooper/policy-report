@@ -4,7 +4,7 @@
 
 ## 报告发布网站
 
-**在线访问**: [http://www.makemerich.top/policy-report/](http://www.makemerich.top/policy-report/)
+**在线访问**: [https://hicooper.github.io/](https://hicooper.github.io/policy-report/)
 
 ## 项目简介
 

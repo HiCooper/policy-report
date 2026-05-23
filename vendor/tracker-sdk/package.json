@@ -1,0 +1,15 @@
+{
+  "name": "@gate-flow/tracker-sdk",
+  "version": "1.0.0",
+  "description": "GateFlow Tracker SDK for client-side event collection",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  }
+}
