@@ -38,6 +38,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Copy report files
+        run: cp -r ./report ./dist/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
