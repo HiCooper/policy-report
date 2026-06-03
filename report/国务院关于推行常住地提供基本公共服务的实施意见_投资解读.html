@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【政策分析报告】国务院关于推行常住地提供基本公共服务的实施意见投资解读</title>
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #26a269;
+            --accent: #e66100;
+            --warning: #c01c28;
+            --bg-light: #f6f5f4;
+            --bg-card: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #5e5c64;
+            --border: #deddda;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        .report-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d7dd2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .report-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .report-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .report-meta span { display: flex; align-items: center; gap: 6px; }
+
+        .policy-link, .reference-link {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 14px;
+        }
+
+        .policy-link a, .reference-link a {
+            color: white;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+
+        .policy-link a:hover, .reference-link a:hover { opacity: 0.8; }
+
+        .reference-link .separator { margin: 0 10px; opacity: 0.5; }
+
+        .content-card {
+            background: var(--bg-card);
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .section { margin-bottom: 40px; }
+        .section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            margin-top: 28px;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover { background: var(--bg-light); }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-red { background: #f8d7da; color: #721c24; }
+
+        .priority-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .priority-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .priority-1 .priority-badge { background: #FFD700; color: #000; }
+        .priority-2 .priority-badge { background: #C0C0C0; color: #333; }
+        .priority-3 .priority-badge { background: #CD7F32; color: #fff; }
+        .priority-4 .priority-badge { background: var(--primary); color: white; }
+
+        .stock-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .stock-tag {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .risk-item {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .risk-item.medium { background: #fff3cd; border-left: 4px solid var(--accent); }
+        .risk-item.high { background: #f8d7da; border-left: 4px solid var(--warning); }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d4edda 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 24px;
+        }
+
+        .conclusion-box h3 { color: var(--primary); margin-top: 0; }
+
+        .conclusion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .conclusion-item:last-child { margin-bottom: 0; }
+
+        .conclusion-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist li.checked { background: #d4edda; }
+        .checklist li.current { background: #cce5ff; }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .checklist li.checked .check-box {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+
+        .checklist li.current .check-box {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .report-footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .summary-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .summary-card.highlight {
+            border-left-color: var(--secondary);
+            background: #f0f9f4;
+        }
+
+        .summary-card h4 { margin: 0 0 8px 0; color: var(--text-primary); }
+
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .keyword-item {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .keyword-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .keyword-value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e6 100%);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 { color: var(--accent); margin-bottom: 10px; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="report-header">
+            <h1>【政策分析报告】国务院关于推行常住地提供基本公共服务的实施意见投资解读</h1>
+            <div class="report-meta">
+                <span>分析日期：2026-05-22</span>
+                <span>发布日期：2026年05月22日</span>
+                <span>政策级别：行政法规（国务院）</span>
+            </div>
+            <div class="policy-link">
+                <span>政策原文：</span>
+                <a href="https://www.gov.cn/zhengce/content/202605/content_7069960.htm" target="_blank" rel="noopener noreferrer">国务院关于推行常住地提供基本公共服务的实施意见</a>
+            </div>
+            <div class="reference-link">
+                <span>参考来源：</span>
+                <a href="https://www.ndrc.gov.cn/" target="_blank">国家发展和改革委员会</a>
+                <span class="separator">|</span>
+                <a href="https://www.mof.gov.cn/" target="_blank">财政部</a>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section">
+                <h2><span class="section-icon">1</span>政策三步法解读</h2>
+
+                <h3>1.1 信息获取摘要</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>中央文件</h4>
+                        <p>《国务院关于推行常住地提供基本公共服务的实施意见》（国发〔2026〕11号）</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>核心定位</h4>
+                        <p>基本公共服务均等化的顶层设计，覆盖6大领域13项措施</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>政策目标</h4>
+                        <p>消除户籍挂钩，释放国内需求潜力，支撑新型城镇化战略</p>
+                    </div>
+                </div>
+
+                <h3>1.2 阅读分析</h3>
+                <h4>从上往下看结论</h4>
+                <p style="margin-bottom: 20px;">✅ <strong>中央定调 → 十三项任务分解 → 地方实施路径明确</strong></p>
+
+                <h4>关键词提取</h4>
+                <div class="keyword-grid">
+                    <div class="keyword-item">
+                        <div class="keyword-label">定调词</div>
+                        <div class="keyword-value">有力支撑、以人为本</div>
+                        <small style="color: var(--secondary);">战略级定位</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">约束词</div>
+                        <div class="keyword-value">取消户籍限制</div>
+                        <small style="color: var(--warning);">破除壁垒</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">扶持词</div>
+                        <div class="keyword-value">推行、促进、推动</div>
+                        <small style="color: var(--secondary);">全面推广</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">节奏词</div>
+                        <div class="keyword-value">尽力而为、稳步</div>
+                        <small style="color: var(--accent);">务实落地</small>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>关键数据洞察</h4>
+                    <p><strong>覆盖人群扩大</strong>：从"农民工"扩展至"全部未落户常住人口"</p>
+                    <p><strong>机制创新</strong>：明确探索"转移支付考虑常住人口因素分配"</p>
+                    <p><strong>区域联动</strong>：城市群/都市圈先行先试（京津冀、长三角、粤港澳）</p>
+                </div>
+
+                <h4>关键差异对比</h4>
+                <table>
+                    <thead>
+                        <tr><th>对比维度</th><th>前期政策（2021-2023）</th><th>本文件（2026）</th><th>变化信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>覆盖人群</td>
+                            <td>聚焦农民工群体</td>
+                            <td>全部未落户常住人口</td>
+                            <td><span class="badge badge-green">扩大覆盖</span></td>
+                        </tr>
+                        <tr>
+                            <td>户籍绑定</td>
+                            <td>部分领域绑定</td>
+                            <td>明确"不得设置户籍限制"</td>
+                            <td><span class="badge badge-green">破除壁垒</span></td>
+                        </tr>
+                        <tr>
+                            <td>跨区域协同</td>
+                            <td>省级统筹为主</td>
+                            <td>城市群/都市圈先行先试</td>
+                            <td><span class="badge badge-blue">区域联动</span></td>
+                        </tr>
+                        <tr>
+                            <td>财政机制</td>
+                            <td>转移支付未考虑人口因素</td>
+                            <td>探索人口因素分配</td>
+                            <td><span class="badge badge-green">机制创新</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>1.3 政策阶段判断</h3>
+                <ul class="checklist">
+                    <li class="checked"><span class="check-box">✓</span><span>战略酝酿期（2013-2019）</span></li>
+                    <li class="checked"><span class="check-box">✓</span><span>试点/框架建设期（2020-2024）</span></li>
+                    <li class="current"><span class="check-box">▶</span><span><strong>全面推广落地期（当前阶段）</strong></span><span class="badge badge-blue">当前</span></li>
+                    <li><span class="check-box"></span><span>成果验收进阶期</span></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-icon">2</span>跟踪法投资信号</h2>
+
+                <h3>2.1 信号一：钱流向</h3>
+                <table>
+                    <thead>
+                        <tr><th>通道</th><th>数据来源</th><th>预期规模</th><th>落地判断</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>中央预算内投资</strong></td>
+                            <td>政策明确支持就业技能培训设施</td>
+                            <td>亿级规模</td>
+                            <td><span class="badge badge-orange">⏳ 待确认</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>财政转移支付</strong></td>
+                            <td>财政部探索人口因素分配</td>
+                            <td>千亿级</td>
+                            <td><span class="badge badge-orange">⏳ 探索中</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>地方配套资金</strong></td>
+                            <td>公租房、学位、医保等</td>
+                            <td>数百亿级</td>
+                            <td><span class="badge badge-orange">⏳ 细则待出</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>社保基金</strong></td>
+                            <td>新就业形态参保扩面</td>
+                            <td>持续增长</td>
+                            <td><span class="badge badge-green">✅ 已有基础</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 信号二：试点结果</h3>
+                <table>
+                    <thead>
+                        <tr><th>试点领域</th><th>代表项目</th><th>完成情况</th><th>推广信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>居住证制度</td>
+                            <td>全国推广，凭证即享</td>
+                            <td><span class="badge badge-green">基本建立</span></td>
+                            <td>全国执行</td>
+                        </tr>
+                        <tr>
+                            <td>异地就医结算</td>
+                            <td>跨省直接结算覆盖</td>
+                            <td><span class="badge badge-green">规模扩大</span></td>
+                            <td>持续完善</td>
+                        </tr>
+                        <tr>
+                            <td>公租房保障</td>
+                            <td>多个城市已覆盖外来人口</td>
+                            <td><span class="badge badge-green">基础扎实</span></td>
+                            <td>扩面推进</td>
+                        </tr>
+                        <tr>
+                            <td>随迁子女入学</td>
+                            <td>部分城市公办学位保障</td>
+                            <td><span class="badge badge-orange">不均衡</span></td>
+                            <td>巩固提升</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4>投资信号结论</h4>
+                    <p>🔔 <strong>明确信号</strong>：政策从"破除壁垒"进入"全面落地"阶段。核心受益方向：</p>
+                    <ul>
+                        <li>人口流入城市公共服务扩容（教育、住房、医疗）</li>
+                        <li>城市群/都市圈基础设施互联互通</li>
+                        <li>新市民消费潜力释放</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-icon">3</span>时间线演进与板块复盘</h2>
+
+                <h3>3.1 政策时间线</h3>
+                <table>
+                    <thead>
+                        <tr><th>时间</th><th>事件</th><th>产业意义</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>2013.12</strong></td><td>《国家新型城镇化规划（2014-2020年）》发布</td><td>新型城镇化顶层设计</td></tr>
+                        <tr><td><strong>2019.02</strong></td><td>《2019年新型城镇化建设重点任务》发布</td><td>放开落户限制</td></tr>
+                        <tr><td><strong>2021.03</strong></td><td>"十四五"规划明确推进以人为本的新型城镇化</td><td>战略升级</td></tr>
+                        <tr><td><strong>2026.05</strong></td><td>国发〔2026〕11号：常住地提供基本公共服务</td><td><strong>全面落地</strong></td></tr>
+                    </tbody>
+                </table>
+
+                <h3>3.2 A股板块趋势复盘</h3>
+                <table>
+                    <thead>
+                        <tr><th>阶段</th><th>时间区间</th><th>领涨细分</th><th>政策催化</th><th>当前状态</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-orange">概念期</span></td>
+                            <td>2013-2016</td>
+                            <td>基建、房地产</td>
+                            <td>城镇化顶层设计</td>
+                            <td>已过</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-blue">政策密集期</span></td>
+                            <td>2017-2020</td>
+                            <td>户籍改革、地产链</td>
+                            <td>放开落户</td>
+                            <td>已过</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-green">全面落地期</span></td>
+                            <td>2026-至今</td>
+                            <td>教育、住房、消费、城市服务</td>
+                            <td>本文件落地</td>
+                            <td><strong>当前</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.3 相关板块分析</h3>
+                <ul>
+                    <li><strong>教育板块</strong>：随迁子女教育保障 → 公办学位需求增加 → 民办教育补充</li>
+                    <li><strong>房地产板块</strong>：公租房扩容 + 灵活就业公积金 → 住房需求支撑</li>
+                    <li><strong>消费板块</strong>：新市民消费潜力释放 → 日常消费、服务消费</li>
+                    <li><strong>医疗板块</strong>：异地就医结算扩面 + 医保省级统筹 → 医疗IT、医疗服务</li>
+                    <li><strong>城市服务板块</strong>：人口流入地公共服务设施建设 → 物业管理、城市运营</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-icon">4</span>ETF与核心标的匹配</h2>
+
+                <h3>4.1 ETF推荐列表</h3>
+                <table>
+                    <thead>
+                        <tr><th>ETF代码</th><th>名称</th><th>匹配度</th><th>操作建议</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>512600</strong></td>
+                            <td>消费ETF</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>关注</td>
+                        </tr>
+                        <tr>
+                            <td><strong>159928</strong></td>
+                            <td>消费ETF易方达</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>关注</td>
+                        </tr>
+                        <tr>
+                            <td><strong>512660</strong></td>
+                            <td>房地产ETF</td>
+                            <td><span class="badge badge-orange">低</span></td>
+                            <td>谨慎</td>
+                        </tr>
+                        <tr>
+                            <td><strong>159865</strong></td>
+                            <td>医疗器械ETF</td>
+                            <td><span class="badge badge-blue">中</span></td>
+                            <td>关注</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><em>注：本政策为基本公共服务政策，直接利好消费、医疗服务，对科技/工业板块影响有限。</em></p>
+
+                <h3>4.2 最直接受益标的（优先级排序）</h3>
+
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">1</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：消费服务</h4>
+                        <p><strong>受益逻辑：</strong>城镇化人口消费升级 + 新市民消费潜力释放</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">永辉超市 (601933)</span>
+                            <span class="stock-tag">美团-W (03690)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-2">
+                    <div class="priority-badge">2</div>
+                    <div class="priority-content">
+                        <h4>第二优先级：物业管理</h4>
+                        <p><strong>受益逻辑：</strong>人口流入城市物业需求增加 + 公租房管理需求</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">碧桂园服务 (06098)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-3">
+                    <div class="priority-badge">3</div>
+                    <div class="priority-content">
+                        <h4>第三优先级：医疗IT</h4>
+                        <p><strong>受益逻辑：</strong>异地就医结算扩面 + 全国医疗服务价格统一</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">卫宁健康 (300253)</span>
+                            <span class="stock-tag">创业慧康 (300451)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-4">
+                    <div class="priority-badge">4</div>
+                    <div class="priority-content">
+                        <h4>第四优先级：教育服务</h4>
+                        <p><strong>受益逻辑：</strong>公办学位保障 → 民办教育补充需求</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">好未来 (TAL)</span>
+                            <span class="stock-tag">新东方 (EDU)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-icon">5</span>风险提示</h2>
+
+                <div class="risk-grid">
+                    <div class="risk-item medium">
+                        <div class="risk-label">地方财政压力</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等</span>
+                        <p style="margin-top:10px;font-size:12px;">公共服务扩容需要地方配套资金</p>
+                    </div>
+                    <div class="risk-item medium">
+                        <div class="risk-label">政策落地节奏</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等</span>
+                        <p style="margin-top:10px;font-size:12px;">涉及多部门协调，执行进度不均</p>
+                    </div>
+                    <div class="risk-item medium">
+                        <div class="risk-label">人口流动不确定性</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等</span>
+                        <p style="margin-top:10px;font-size:12px;">人口流入城市服务供给可能不足</p>
+                    </div>
+                    <div class="risk-item medium">
+                        <div class="risk-label">房地产关联风险</div>
+                        <span class="risk-status" style="background: #fff3cd; color: #856404;">🟡 中等</span>
+                        <p style="margin-top:10px;font-size:12px;">公租房扩容可能冲击商品房市场</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-box">
+                <h3>核心结论</h3>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--secondary); color: white;">1</span>
+                    <div><strong>政策力度：</strong>强，中央层面的常住人口公共服务均等化顶层设计</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--primary); color: white;">2</span>
+                    <div><strong>最超预期亮点：</strong>明确"取消户籍限制" + "探索人口因素分配转移支付"</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--accent); color: white;">3</span>
+                    <div><strong>最佳投资窗口：</strong>长期利好，当前处于"主题投资期"</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #6c757d; color: white;">4</span>
+                    <div><strong>首选配置：</strong>消费ETF（512600/159928）+ 医疗IT（卫宁健康等）</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-footer">
+            <p><strong>声明：</strong>本报告仅为分析框架展示，不构成任何投资建议。投资者应独立决策，自负盈亏。</p>
+        </div>
+    </div>
+</body>
+</html>
