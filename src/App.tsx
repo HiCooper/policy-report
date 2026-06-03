@@ -21,7 +21,7 @@ const SPM_CODES = {
 function ReportCard({ report }: { report: Report }) {
   const spmCode = SPM_CODES[report.id as keyof typeof SPM_CODES] || ''
   const baseUrl = import.meta.env.BASE_URL
-  const reportUrl = `${baseUrl.replace(/\/$/, '')}${report.file}`
+  const reportUrl = `${baseUrl.replace(/\/$/, '')}/report/${report.id}.html`
 
   const handleView = () => {
     window.open(reportUrl, '_blank')

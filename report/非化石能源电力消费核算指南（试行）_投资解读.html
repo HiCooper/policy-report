@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【政策分析报告】非化石能源电力消费核算指南（试行）</title>
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #26a269;
+            --accent: #e66100;
+            --warning: #c01c28;
+            --bg-light: #f6f5f4;
+            --bg-card: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #5e5c64;
+            --border: #deddda;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light); color: var(--text-primary); line-height: 1.7; padding: 40px 20px;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        /* Header */
+        .report-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d7dd2 100%);
+            color: white; padding: 50px 40px; border-radius: 16px 16px 0 0;
+        }
+        .report-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+        .report-meta { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; opacity: 0.9; }
+        .report-meta span { display: flex; align-items: center; gap: 6px; }
+        .policy-link, .reference-link { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 14px; }
+        .policy-link a, .reference-link a { color: white; text-decoration: underline; transition: opacity 0.2s; }
+        .policy-link a:hover, .reference-link a:hover { opacity: 0.8; }
+        .reference-link .separator { margin: 0 10px; opacity: 0.5; }
+
+        /* Content Card */
+        .content-card {
+            background: var(--bg-card); border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 30px;
+        }
+        .section { margin-bottom: 40px; }
+        .section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--primary); font-size: 20px; font-weight: 600;
+            padding-bottom: 12px; border-bottom: 3px solid var(--primary);
+            margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+        }
+        h2 .section-icon {
+            width: 32px; height: 32px; background: var(--primary);
+            border-radius: 8px; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 16px;
+        }
+        h3 { color: var(--text-primary); font-size: 16px; font-weight: 600; margin-bottom: 16px; margin-top: 28px; }
+        h4 { color: var(--text-primary); font-size: 15px; font-weight: 600; margin-bottom: 10px; margin-top: 20px; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg-light); font-weight: 600; color: var(--text-secondary); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        tr:hover { background: var(--bg-light); }
+
+        /* Badges */
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-red { background: #f8d7da; color: #721c24; }
+
+        .priority-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: var(--bg-light); border-radius: 12px; margin-bottom: 16px; }
+        .priority-badge { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+        .priority-1 .priority-badge { background: #FFD700; color: #000; }
+        .priority-2 .priority-badge { background: #C0C0C0; color: #333; }
+        .priority-3 .priority-badge { background: #CD7F32; color: #fff; }
+        .priority-4 .priority-badge { background: var(--primary); color: white; }
+        .stock-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .stock-tag { background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+
+        .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+        .risk-item { padding: 20px; border-radius: 12px; text-align: center; }
+        .risk-item.medium { background: #fff3cd; border-left: 4px solid var(--accent); }
+        .risk-item.high { background: #f8d7da; border-left: 4px solid var(--warning); }
+        .risk-item.low { background: #d4edda; border-left: 4px solid var(--secondary); }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d4edda 100%);
+            border-radius: 16px; padding: 30px; margin-top: 24px;
+        }
+        .conclusion-box h3 { color: var(--primary); margin-top: 0; }
+        .conclusion-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 15px; }
+        .conclusion-item:last-child { margin-bottom: 0; }
+        .conclusion-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+        .checklist { list-style: none; }
+        .checklist li { padding: 12px 16px; margin-bottom: 8px; border-radius: 8px; display: flex; align-items: center; gap: 12px; }
+        .checklist li.checked { background: #d4edda; }
+        .checklist li.current { background: #cce5ff; }
+        .check-box { width: 24px; height: 24px; border-radius: 6px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .checklist li.checked .check-box { background: var(--secondary); border-color: var(--secondary); color: white; }
+        .checklist li.current .check-box { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .report-footer { text-align: center; padding: 30px; color: var(--text-secondary); font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .summary-card { background: var(--bg-light); border-radius: 12px; padding: 20px; border-left: 4px solid var(--primary); }
+        .summary-card.highlight { border-left-color: var(--secondary); background: #f0f9f4; }
+        .summary-card h4 { margin: 0 0 8px 0; color: var(--text-primary); }
+        .keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .keyword-item { background: var(--bg-light); padding: 16px; border-radius: 10px; text-align: center; }
+        .keyword-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+        .keyword-value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+
+        .hot-tag {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 2px 8px; border-radius: 10px; font-size: 11px; margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="report-header">
+            <h1>【政策分析报告】《非化石能源电力消费核算指南（试行）》——绿证正式"入编"，碳排放双控进入精准核算时代</h1>
+            <div class="report-meta">
+                <span>📅 分析日期：2026-06-02</span>
+                <span>📆 发布日期：2026年6月1日</span>
+                <span>🏛️ 发布机构：国家发展改革委、国家能源局、生态环境部、国家统计局、国家数据局</span>
+            </div>
+            <div class="policy-link">
+                <span>📖 政策原文：</span>
+                <a href="https://www.nda.gov.cn/sjj/zwgk/zcfb/0601/20260601211616018140035_pc.html" target="_blank" rel="noopener noreferrer">国家发展改革委、国家能源局等部门关于印发《非化石能源电力消费核算指南（试行）》的通知（发改能源〔2026〕622号）</a>
+            </div>
+            <div class="reference-link">
+                <span>📚 参考来源：</span>
+                <a href="http://paper.people.com.cn/rmrbhwb/pc/content/202606/02/content_30160480.html" target="_blank">人民日报海外版：非化石能源电力消费有了核算指南</a>
+                <span class="separator">|</span>
+                <a href="https://www.news.cn/20260602/3708608063ce49639466370786462c0b/c.html" target="_blank">新华网：非化石能源电力消费核算指南出台 绿证市场迎利好</a>
+                <span class="separator">|</span>
+                <a href="https://www.21jingji.com/article/20260602/herald/8bc365212eebb27a6525984b977c36d0.html" target="_blank">21财经：绿证首次纳入非化石能源电力消费核算体系</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-card">
+
+            <!-- Section 1: Policy Analysis -->
+            <div class="section">
+                <h2><span class="section-icon">1</span>政策三步法解读</h2>
+
+                <h3>1.1 信息获取摘要</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>🔵 五部委联合印发</h4>
+                        <p>国家发展改革委、国家能源局、生态环境部、国家统计局、国家数据局联合发布《非化石能源电力消费核算指南（试行）》，自印发之日起试行。</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>🟢 核心定位</h4>
+                        <p>绿证从"补充凭证"正式升级为碳排放双控制度中的<strong>"基本核算工具"</strong>，填补了非化石能源电力消费核算的制度空白。</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>🎯 直接催化剂</h4>
+                        <p>承接4月两办《碳达峰碳中和综合评价考核办法》，为非化石能源消费占比考核指标提供<strong>统一核算方法论</strong>。</p>
+                    </div>
+                </div>
+
+                <h3>1.2 阅读分析</h3>
+                <h4>从上往下看结论</h4>
+                <p style="margin-bottom: 20px;">✅ <strong>中央→部委→地方路径清晰：</strong>两办考核办法定目标 → 五部委核算指南定规则 → 地方将跟进实施细则。政策转化链条完整，执行路径明确。</p>
+                <p style="margin-bottom: 20px;">✅ <strong>覆盖层次完整：</strong>省级、地市、电力用户三层核算体系，实现对非化石能源电力消费的<strong>全口径覆盖</strong>。</p>
+
+                <h4>关键词提取</h4>
+                <div class="keyword-grid">
+                    <div class="keyword-item">
+                        <div class="keyword-label">定调词</div>
+                        <div class="keyword-value">贯彻落实、推动完善</div>
+                        <small style="color: var(--secondary);">五部委联合 → 最高力度</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">制度创新词</div>
+                        <div class="keyword-value">三种认定方式<body></body></div>
+                        <small style="color: var(--primary);">物理认定+交易认定+分摊认定</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">约束词</div>
+                        <div class="keyword-value">仅认定一次、认定上限</div>
+                        <small style="color: var(--warning);">严格防重复、防超额</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">节奏词</div>
+                        <div class="keyword-value">试行</div>
+                        <small style="color: var(--accent);">2026年起先行先试，后续优化</small>
+                    </div>
+                </div>
+
+                <h4>关键差异对比</h4>
+                <table>
+                    <thead>
+                        <tr><th>对比维度</th><th>此前状态</th><th>本指南</th><th>变化信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>绿证地位</td><td>自愿性补充凭证，非强制</td><td>碳排放核算中的<strong>基本工具</strong></td>
+                            <td><span class="badge badge-green">✅ 制度性升级</span></td>
+                        </tr>
+                        <tr>
+                            <td>核算规则</td><td>省/地市/用户各自核算，标准不一</td><td>统一三种认定方式 + 分层核算方法</td>
+                            <td><span class="badge badge-green">✅ 标准化</span></td>
+                        </tr>
+                        <tr>
+                            <td>绿证跨省交易</td><td>缺乏核算框架支撑</td><td>明确省间绿证认定上限 + 省间分摊机制</td>
+                            <td><span class="badge badge-green">✅ 打通堵点</span></td>
+                        </tr>
+                        <tr>
+                            <td>绿证与碳核算衔接</td><td>未有效衔接</td><td>绿证纳入碳排放核算体系路径清晰</td>
+                            <td><span class="badge badge-orange">🔶 历史性突破</span></td>
+                        </tr>
+                        <tr>
+                            <td>绿电直连新业态</td><td>未被认定</td>
+                            <td>物理认定明确纳入绿电直连</td>
+                            <td><span class="badge badge-green">✅ 新业态获认可</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>1.3 政策阶段判断</h3>
+                <ul class="checklist">
+                    <li class="checked"><span class="check-box">✓</span><span>战略酝酿期（2020-2023：双碳目标提出+绿证制度建立）</span></li>
+                    <li class="checked"><span class="check-box">✓</span><span>体系框架建设期（2024-2025：绿证全覆盖+碳排放双控转轨）</span></li>
+                    <li class="current"><span class="check-box">▶</span><span><strong>全面落地执行期（2026：考核办法+核算指南双落地）</strong></span><span class="badge badge-blue">当前</span></li>
+                    <li><span class="check-box"></span><span>成果验收进阶期（2027+：首次考核结果出炉+全国统一绿证市场）</span></li>
+                </ul>
+            </div>
+
+            <!-- Section 2: Tracking Method -->
+            <div class="section">
+                <h2><span class="section-icon">2</span>跟踪法投资信号</h2>
+
+                <h3>2.1 信号一：钱流向</h3>
+                <table>
+                    <thead>
+                        <tr><th>通道</th><th>核心数据</th><th>预期催化</th><th>落地判断</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>绿证交易市场</strong></td>
+                            <td>Q1交易2.40亿个（+20% YoY）；4月核发2.37亿个</td>
+                            <td>核算指南落地后，<strong>强制需求将爆发</strong></td>
+                            <td><span class="badge badge-green">✅ 交易量已加速</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>绿证价格</strong></td>
+                            <td>均价稳定在5.2元/个，2025年产绿证约5.9元/个</td>
+                            <td>需求扩张→价格中枢上移</td>
+                            <td><span class="badge badge-orange">⏳ 需求催化中</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>绿电ETF资金</strong></td>
+                            <td>绿电ETF华夏(562550)连续16天净流入，吸金5.94亿</td>
+                            <td>机构提前布局信号明确</td>
+                            <td><span class="badge badge-green">✅ 主力资金已入场</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>碳市场</strong></td>
+                            <td>碳价站上100元/吨，扩围至钢铁/水泥/铝业</td>
+                            <td>核算统一后碳成本内化加速</td>
+                            <td><span class="badge badge-green">✅ 碳约束强化</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 信号二：试点与配套进展</h3>
+                <table>
+                    <thead>
+                        <tr><th>领域</th><th>进展</th><th>完成情况</th><th>投资信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>碳排放双控考核</td>
+                            <td>两办考核办法6月启动首次考核</td>
+                            <td><span class="badge badge-green">制度就绪</span></td>
+                            <td>地方/企业被迫购买绿证完成指标</td>
+                        </tr>
+                        <tr>
+                            <td>绿证全覆盖</td>
+                            <td>已覆盖风光水核生物质</td>
+                            <td><span class="badge badge-green">基本完成</span></td>
+                            <td>供给端充足，交易量扩大受益交易平台</td>
+                        </tr>
+                        <tr>
+                            <td>省间绿证转让</td>
+                            <td>指南明确省间自愿转让机制</td>
+                            <td><span class="badge badge-orange">框架出台</span></td>
+                            <td>西部绿电资源省份最先受益</td>
+                        </tr>
+                        <tr>
+                            <td>绿电直连</td>
+                            <td>物理认定首次纳入</td>
+                            <td><span class="badge badge-green">获政策背书</span></td>
+                            <td>东数西算+绿电直连项目价值重估</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3: Timeline -->
+            <div class="section">
+                <h2><span class="section-icon">3</span>时间线演进与板块复盘</h2>
+
+                <h3>3.1 政策时间线</h3>
+                <table>
+                    <thead>
+                        <tr><th>时间</th><th>事件</th><th>产业意义</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2023.08</strong></td>
+                            <td>三部门推动绿证全覆盖（全覆盖可再生能源）</td>
+                            <td>绿证供给端全面放开</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2024.08</strong></td>
+                            <td>国务院推动能耗双控向碳排放双控全面转轨</td>
+                            <td>碳核算需求从"可选项"变"必选项"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.04.24</strong></td>
+                            <td>两办印发《碳达峰碳中和综合评价考核办法》</td>
+                            <td>非化石能源消费占比成为硬约束指标<span class="hot-tag">🔥里程碑</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.05.06</strong></td>
+                            <td>五部委签发核算指南（发改能源〔2026〕622号）</td>
+                            <td>为考核提供核算工具支撑</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.06.01</strong></td>
+                            <td>核算指南正式公开发布</td>
+                            <td>政策落地窗口打开<span class="hot-tag">📍当前</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.H2（预期）</strong></td>
+                            <td>各省陆续出台绿证分配/转售细则</td>
+                            <td>绿证跨省市场正式启动</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.2 A股板块趋势复盘</h3>
+                <table>
+                    <thead>
+                        <tr><th>阶段</th><th>时间区间</th><th>领涨细分</th><th>资金行为</th><th>估值水平</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-orange">概念期</span></td>
+                            <td>2024.H2-2025.H1</td>
+                            <td>绿电运营商、碳交易概念</td>
+                            <td>主题轮动，公募低配</td>
+                            <td>PE 15-20x</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-blue">政策+资金共振期</span></td>
+                            <td>2025.H2-2026.Q1</td>
+                            <td>核电、水电龙头率先启动</td>
+                            <td>ETF连续净流入，机构加仓</td>
+                            <td>PE 18-25x</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-green">制度落地驱动期</span></td>
+                            <td>2026.Q2-至今</td>
+                            <td>绿证交易→绿电运营全链爆发</td>
+                            <td>562550连续16日净流入</td>
+                            <td>PE 20-28x，龙头溢价</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 12px;">
+                    💡 <strong>当前判断：</strong>板块已从"主题炒作"进入"制度红利+业绩兑现"双驱动阶段。核算指南补上了碳考核的"最后一公里"——有了统一核算标准，各省和企业的非化石能源消费才可以量化考核，绿证的强制需求才真正被激活。这是<strong>从0到1的制度临界点</strong>。
+                </p>
+            </div>
+
+            <!-- Section 4: ETF & Stock -->
+            <div class="section">
+                <h2><span class="section-icon">4</span>ETF与核心标的匹配</h2>
+
+                <h3>4.1 ETF推荐列表</h3>
+                <table>
+                    <thead>
+                        <tr><th>ETF代码</th><th>名称</th><th>匹配度</th><th>规模(亿)</th><th>近20日净流入</th><th>费率</th><th>操作建议</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>562550</strong></td>
+                            <td>绿电ETF华夏</td>
+                            <td><span class="badge badge-green">⭐⭐⭐⭐⭐</span></td>
+                            <td>13.89</td>
+                            <td>+5.94亿（连续16日）</td>
+                            <td>0.50%</td>
+                            <td><strong>首推·资金共识最强</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>561170</strong></td>
+                            <td>绿色电力ETF富国</td>
+                            <td><span class="badge badge-green">⭐⭐⭐⭐</span></td>
+                            <td>8.5+</td>
+                            <td>持续净流入</td>
+                            <td>0.50%</td>
+                            <td>次选·成分股分散</td>
+                        </tr>
+                        <tr>
+                            <td><strong>159061</strong></td>
+                            <td>绿色电力ETF南方</td>
+                            <td><span class="badge badge-blue">⭐⭐⭐⭐</span></td>
+                            <td>新发（5.28）</td>
+                            <td>首发募集中</td>
+                            <td>0.15%</td>
+                            <td><strong>低费率·关注建仓</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>159146</strong></td>
+                            <td>电力ETF华宝</td>
+                            <td><span class="badge badge-blue">⭐⭐⭐</span></td>
+                            <td>5+</td>
+                            <td>温和净流入</td>
+                            <td>0.50%</td>
+                            <td>含火电转型·弹性更大</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4.2 最直接受益标的（优先级排序）</h3>
+
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">🥇</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：绿电运营商——绿证收入直接增厚利润</h4>
+                        <p><strong>受益逻辑：</strong>核算指南将绿证锁定为碳核算基本工具，企业为完成非化石能源消费考核将被迫大规模购买绿证。绿电运营商获得"卖电+卖证"双重收入，绿证价格从5.2元上移将直接贡献利润增量。按2025年利润测算，绿证收入占比每提升1个百分点，对应利润弹性约5-8%。</p>
+                        <p><strong>核心催化：</strong>① 各省考核细则出台 → 绿证强制需求打开；② 绿证价格上行 → 运营商盈利预期上修。</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">三峡能源 (600905) · 风光龙头</span>
+                            <span class="stock-tag">龙源电力 (001289) · 最大风电运营商</span>
+                            <span class="stock-tag">节能风电 (601016) · 纯风电</span>
+                            <span class="stock-tag">华能国际 (600011) · 火绿转型</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-2">
+                    <div class="priority-badge">🥈</div>
+                    <div class="priority-content">
+                        <h4>第二优先级：绿证交易平台及电力交易基础设施</h4>
+                        <p><strong>受益逻辑：</strong>核算指南推动绿证交易量爆发。2026年Q1绿证交易量2.40亿个（+20%），政策催化下全年有望突破10亿个。省间绿证转让机制打通后，交易频次和规模将指数级增长，电力交易中心/平台直接受益于交易手续费和增值服务。</p>
+                        <p><strong>核心催化：</strong>① 全国统一绿证市场建设提速；② 碳市场扩围 → 碳-电-证联动交易需求。</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">国网信通 (600131) · 电力交易信息化</span>
+                            <span class="stock-tag">远光软件 (002063) · 碳资产管理系统</span>
+                            <span class="stock-tag">国电南瑞 (600406) · 电力调度自动化</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-3">
+                    <div class="priority-badge">🥉</div>
+                    <div class="priority-content">
+                        <h4>第三优先级：核电/水电——高确定性非化石能源</h4>
+                        <p><strong>受益逻辑：</strong>核算指南统一了非化石能源认定标准，水电+核电作为主力非化石电源，绿证收入占比提升确定性高。且两类型均为基荷电源，绿电直连场景下优先受益。核电审批加速（2026年预计10台新机组）叠加绿证收入，双击确定性强。</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">中国核电 (601985) · 核电双寡头之一</span>
+                            <span class="stock-tag">长江电力 (600900) · 水电绝对龙头</span>
+                            <span class="stock-tag">华能水电 (600025) · 澜沧江流域</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-4">
+                    <div class="priority-badge">4</div>
+                    <div class="priority-content">
+                        <h4>第四优先级：绿电直连 & 碳数据服务</h4>
+                        <p><strong>受益逻辑：</strong>指南首次将"绿电直连等新业态新模式"纳入物理认定体系，为东数西算+绿电直连商业模式提供政策合法性。碳数据/碳核算服务商受益于核算体系标准化带来的合规需求爆发。</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">先河环保 (300137) · 碳监测</span>
+                            <span class="stock-tag">雪迪龙 (002658) · 碳排放在线监测</span>
+                            <span class="stock-tag">朗新科技 (300682) · 能源数字化</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Risk -->
+            <div class="section">
+                <h2><span class="section-icon">5</span>风险提示</h2>
+
+                <div class="risk-grid">
+                    <div class="risk-item medium">
+                        <h4>🟡 板块拥挤度</h4>
+                        <p>562550连续16日净流入，短期资金拥挤度上升</p>
+                        <span style="background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-weight: 600;">中等风险</span>
+                    </div>
+                    <div class="risk-item medium">
+                        <h4>🟡 绿证价格波动</h4>
+                        <p>供给端（核发量）持续扩大，若需求增速不及供给，绿证价格可能不涨反跌</p>
+                        <span style="background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 4px; font-weight: 600;">中等风险</span>
+                    </div>
+                    <div class="risk-item high">
+                        <h4>🔴 地方执行节奏</h4>
+                        <p>各省出台实施细则的进度差异大，绿证跨省转让机制细节待明确，可能导致市场预期反复</p>
+                        <span style="background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-weight: 600;">较高风险</span>
+                    </div>
+                    <div class="risk-item low">
+                        <h4>🟢 长期制度确定性</h4>
+                        <p>双碳考核为刚性约束→核算指南为方法论→执行偏差空间有限→制度方向不可逆</p>
+                        <span style="background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; font-weight: 600;">低风险</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="conclusion-box">
+                <h3>🎯 核心结论</h3>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--secondary); color: white;">1</span>
+                    <div><strong>制度临界点：</strong>核算指南是碳考核的"最后一公里"——有了它，非化石能源消费占比从"统计指标"变成"可考核指标"。绿证正式从自愿性凭证升级为强制性核算工具，创造了绿证的<strong>制度性刚需</strong>。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--primary); color: white;">2</span>
+                    <div><strong>最超预期亮点：</strong>①三种认定方式构建完整核算框架，不留制度灰区；②绿电直连首次被官方认可；③省间绿证自愿转让机制——为西部绿电资源省份提供增量收入通道，市场空间打开。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--accent); color: white;">3</span>
+                    <div><strong>投资窗口判断：</strong>6-9月是政策密集兑现期（各省细则+首次考核启动），绿电板块有望迎来第二波催化。<strong>当前时点兼具"制度红利+资金共识+合理估值"三重优势</strong>，建议积极配置。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #6c757d; color: white;">4</span>
+                    <div><strong>首选配置：</strong>绿电ETF华夏(562550) — 资金共识最强+流动性好；三峡能源、龙源电力 — 最直接受益于绿证收入弹性。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="report-footer">
+            <p><strong>声明：</strong>本报告仅为政策分析与投资框架展示，不构成任何投资建议。文中提到的所有股票/ETF仅为分析举例，投资者应独立决策，自负盈亏。数据截至2026年6月2日。</p>
+        </div>
+    </div>
+</body>
+</html>

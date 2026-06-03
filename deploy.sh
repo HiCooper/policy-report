@@ -26,6 +26,26 @@ npm run build
 if [ -d "./report" ]; then
   echo -e "${YELLOW}📋 Copying report files to dist...${NC}"
   cp -r ./report ./dist/
+
+  echo -e "${YELLOW}🔄 Renaming reports by ID...${NC}"
+  node -e "
+  const fs = require('fs');
+  const path = require('path');
+  const content = fs.readFileSync('./src/data/reports.ts', 'utf-8');
+  const regex = /id:\s*(\d+),[\s\S]*?file:\s*'\/report\/(.+?\.html)'/g;
+  const dir = './dist/report/';
+  let match;
+  while ((match = regex.exec(content)) !== null) {
+    const id = match[1];
+    const file = match[2];
+    const src = path.join(dir, file);
+    const dst = path.join(dir, id + '.html');
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, dst);
+      console.log('Copied: ' + file + ' -> ' + id + '.html');
+    }
+  }
+  "
 fi
 
 # Step 3: Upload to server using scp
