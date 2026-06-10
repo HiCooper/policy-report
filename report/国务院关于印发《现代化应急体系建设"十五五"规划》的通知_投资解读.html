@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【政策分析报告】现代化应急体系建设"十五五"规划</title>
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #26a269;
+            --accent: #e66100;
+            --warning: #c01c28;
+            --bg-light: #f6f5f4;
+            --bg-card: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #5e5c64;
+            --border: #deddda;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light); color: var(--text-primary); line-height: 1.7; padding: 40px 20px;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        .report-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d7dd2 100%);
+            color: white; padding: 50px 40px; border-radius: 16px 16px 0 0;
+        }
+        .report-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+        .report-meta { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; opacity: 0.9; }
+        .report-meta span { display: flex; align-items: center; gap: 6px; }
+        .policy-link, .reference-link { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 14px; }
+        .policy-link a, .reference-link a { color: white; text-decoration: underline; transition: opacity 0.2s; }
+        .policy-link a:hover, .reference-link a:hover { opacity: 0.8; }
+        .reference-link .separator { margin: 0 10px; opacity: 0.5; }
+
+        .content-card {
+            background: var(--bg-card); border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 30px;
+        }
+        .section { margin-bottom: 40px; }
+        .section:last-child { margin-bottom: 0; }
+
+        h2 {
+            color: var(--primary); font-size: 20px; font-weight: 600;
+            padding-bottom: 12px; border-bottom: 3px solid var(--primary);
+            margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+        }
+        h2 .section-icon {
+            width: 32px; height: 32px; background: var(--primary);
+            border-radius: 8px; display: flex; align-items: center;
+            justify-content: center; color: white; font-size: 16px;
+        }
+        h3 { color: var(--text-primary); font-size: 16px; font-weight: 600; margin-bottom: 16px; margin-top: 28px; }
+        h4 { color: var(--text-primary); font-size: 15px; font-weight: 600; margin-bottom: 10px; margin-top: 20px; }
+        p { margin-bottom: 12px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg-light); font-weight: 600; color: var(--text-secondary); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        tr:hover { background: var(--bg-light); }
+
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge-green { background: #d4edda; color: #155724; }
+        .badge-blue { background: #cce5ff; color: #004085; }
+        .badge-orange { background: #fff3cd; color: #856404; }
+        .badge-red { background: #f8d7da; color: #721c24; }
+
+        .priority-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: var(--bg-light); border-radius: 12px; margin-bottom: 16px; }
+        .priority-badge { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+        .priority-1 .priority-badge { background: #FFD700; color: #000; }
+        .priority-2 .priority-badge { background: #C0C0C0; color: #333; }
+        .priority-3 .priority-badge { background: #CD7F32; color: #fff; }
+        .priority-4 .priority-badge { background: var(--primary); color: white; }
+        .stock-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .stock-tag { background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+
+        .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+        .risk-item { padding: 20px; border-radius: 12px; text-align: center; }
+        .risk-item.medium { background: #fff3cd; border-left: 4px solid var(--accent); }
+        .risk-item.high { background: #f8d7da; border-left: 4px solid var(--warning); }
+        .risk-item.low { background: #d4edda; border-left: 4px solid var(--secondary); }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d4edda 100%);
+            border-radius: 16px; padding: 30px; margin-top: 24px;
+        }
+        .conclusion-box h3 { color: var(--primary); margin-top: 0; }
+        .conclusion-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 15px; }
+        .conclusion-item:last-child { margin-bottom: 0; }
+        .conclusion-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+        .checklist { list-style: none; }
+        .checklist li { padding: 12px 16px; margin-bottom: 8px; border-radius: 8px; display: flex; align-items: center; gap: 12px; }
+        .checklist li.checked { background: #d4edda; }
+        .checklist li.current { background: #cce5ff; }
+        .check-box { width: 24px; height: 24px; border-radius: 6px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .checklist li.checked .check-box { background: var(--secondary); border-color: var(--secondary); color: white; }
+        .checklist li.current .check-box { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .summary-card { background: var(--bg-light); border-radius: 12px; padding: 20px; border-left: 4px solid var(--primary); }
+        .summary-card.highlight { border-left-color: var(--secondary); background: #f0f9f4; }
+
+        .keyword-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .keyword-item { background: var(--bg-light); padding: 16px; border-radius: 10px; text-align: center; }
+        .keyword-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+        .keyword-value { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+
+        .highlight-box {
+            background: #fff8e6; border-left: 4px solid var(--accent); border-radius: 8px; padding: 20px; margin: 16px 0;
+        }
+        .highlight-box p { margin: 0; }
+
+        .report-footer {
+            text-align: center; padding: 30px; color: var(--text-secondary);
+            font-size: 13px; border-top: 1px solid var(--border); margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="report-header">
+            <h1>【政策分析报告】现代化应急体系建设"十五五"规划——安全应急装备产业进入重仓期</h1>
+            <div class="report-meta">
+                <span>&#128197; 分析日期：2026-06-09</span>
+                <span>&#128198; 发布日期：2026年06月08日</span>
+                <span>&#127991; 政策级别：国务院（国发〔2026〕15号）</span>
+            </div>
+            <div class="policy-link">
+                <span>&#128214; 政策原文：</span>
+                <a href="https://www.gov.cn/zhengce/content/202606/content_7071451.htm" target="_blank" rel="noopener noreferrer">国务院关于印发《现代化应急体系建设"十五五"规划》的通知</a>
+            </div>
+            <div class="reference-link">
+                <span>&#128218; 参考来源：</span>
+                <a href="https://paper.people.com.cn/rmrb/pc/content/202502/26/content_30059075.html" target="_blank" rel="noopener">人民日报：安全应急装备产业市场广潜力大</a>
+                <span class="separator">|</span>
+                <a href="https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202310/t20231013_465476.shtml" target="_blank" rel="noopener">五部委：《安全应急装备重点领域发展行动计划（2023-2025）》</a>
+                <span class="separator">|</span>
+                <a href="https://www.cieme.net/press/info/1494" target="_blank" rel="noopener">2026年安全应急行业重点发展方向和技术装备需求探析</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-card">
+
+            <!-- Section 1: Three-Step Policy Analysis -->
+            <div class="section">
+                <h2><span class="section-icon">1</span>政策三步法解读</h2>
+
+                <h3>1.1 信息获取摘要</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>&#128309; 中央文件</h4>
+                        <p>国务院以"国发"文号印发，属最高级别行政文件。七章三十余条，涵盖应急管理改革、风险源头管控、力量布局、处置保障、基层基础、实施保障六大维度。</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>&#128994; 核心定位</h4>
+                        <p>为"十五五"期间应急体系建设的纲领性规划，明确提出到2030年"事前预防为主的治理模式有效建立"，到2035年"建成中国特色大国应急体系"。</p>
+                    </div>
+                    <div class="summary-card highlight">
+                        <h4>&#127919; 政策目标</h4>
+                        <p>以高水平安全保障高质量发展。坚决遏制重特大事故，最大限度降低自然灾害损失。治理模式从"事后救援"向"事前预防"全面转型。</p>
+                    </div>
+                </div>
+
+                <h3>1.2 阅读分析</h3>
+
+                <h4>从上往下看结论</h4>
+                <p style="margin-bottom: 20px;">&#9989; <strong>已完成中央→地方转化信号明确</strong>：5月21日国常会审议通过→6月8日全文印发→各省市同步转发部署。同时本规划已在国务院《城市更新"十五五"规划》中被多处引用，跨部委联动已启动。</p>
+
+                <h4>关键词提取</h4>
+                <div class="keyword-grid">
+                    <div class="keyword-item">
+                        <div class="keyword-label">定调词</div>
+                        <div class="keyword-value">坚决遏制 最大限度降低</div>
+                        <small style="color: var(--secondary);">力度最强级别，与"十四五"相比显著升级</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">约束词</div>
+                        <div class="keyword-value">严格限制超高层 提级调查</div>
+                        <small style="color: var(--warning);">新增超高层建筑约束，强化责任追究机制</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">扶持词</div>
+                        <div class="keyword-value">壮大产业 培育龙头 首台套推广</div>
+                        <small style="color: var(--secondary);">首次将"壮大安全应急装备产业"单独成节</small>
+                    </div>
+                    <div class="keyword-item">
+                        <div class="keyword-label">节奏词</div>
+                        <div class="keyword-value">加速（人工智能） 有序（引导） 稳步（保险）</div>
+                        <small style="color: var(--accent);">AI+应急为"加速"，其余为"有序/稳步"</small>
+                    </div>
+                </div>
+
+                <h4>关键差异对比</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>对比维度</th>
+                            <th>前期政策（2023五部委行动计划）</th>
+                            <th>本文件（2026十五五规划）</th>
+                            <th>变化信号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>政策层级</td>
+                            <td>五部委联合发文</td>
+                            <td><strong>国务院"国发"文号</strong></td>
+                            <td><span class="badge badge-green">&#8593; 层级跨越</span></td>
+                        </tr>
+                        <tr>
+                            <td>产业地位</td>
+                            <td>重点领域行动计划</td>
+                            <td><strong>专节"壮大安全应急装备产业"</strong></td>
+                            <td><span class="badge badge-green">&#8593; 战略升级</span></td>
+                        </tr>
+                        <tr>
+                            <td>时间跨度</td>
+                            <td>2023-2025（3年）</td>
+                            <td><strong>2026-2030（5年）</strong>+2035远景</td>
+                            <td><span class="badge badge-blue">&#8593; 长周期锁定</span></td>
+                        </tr>
+                        <tr>
+                            <td>资金工具</td>
+                            <td>未明确金融支持</td>
+                            <td><strong>政府性融资担保 + 安全生产责任险扩面 + 首台套推广</strong></td>
+                            <td><span class="badge badge-green">&#8593; 金融配套落地</span></td>
+                        </tr>
+                        <tr>
+                            <td>技术方向</td>
+                            <td>装备研发</td>
+                            <td><strong>AI深度融合 + "久安"大模型 + 智能算力一体化</strong></td>
+                            <td><span class="badge badge-blue">&#8593; 技术跃迁</span></td>
+                        </tr>
+                        <tr>
+                            <td>航空救援</td>
+                            <td>提及但未细化</td>
+                            <td><strong>"1小时航空救援网络" + 租购并举 + 低空+应急明确场景</strong></td>
+                            <td><span class="badge badge-green">&#8593; 超预期加码</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>1.3 政策阶段判断</h3>
+                <ul class="checklist">
+                    <li class="checked"><span class="check-box">&#10003;</span><span>战略酝酿期（2021-2023）：应急管理部成立至首次系统性规划提出</span></li>
+                    <li class="checked"><span class="check-box">&#10003;</span><span>试点/框架建设期（2023-2025）：五部委行动计划 + 地方国债项目落地 + 城市生命线试点</span></li>
+                    <li class="current"><span class="check-box">&#9654;</span><span><strong>全面推广落地期（2026-2030，当前阶段）</strong></span><span class="badge badge-blue">当前</span></li>
+                    <li><span class="check-box"></span><span>成果验收进阶期（2030-2035）：2030中期评估 → 2035大国应急体系建成</span></li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>&#9888; 核心判断：</strong>这是一个从"部门级行动计划"跃升到"国务院级五年规划"的质变。安全应急装备从"有需求→被支持"变成"国家级产业方向→必须做"。产业规模有望从2025年的约1.5万亿元向2.5万-3万亿元量级迈进（十五五期间）。</p>
+                </div>
+            </div>
+
+            <!-- Section 2: Tracking Method -->
+            <div class="section">
+                <h2><span class="section-icon">2</span>跟踪法投资信号</h2>
+
+                <h3>2.1 信号一：钱流向</h3>
+                <table>
+                    <thead>
+                        <tr><th>通道</th><th>数据来源</th><th>预期规模</th><th>落地判断</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>中央预算/国债</strong></td>
+                            <td>应急管理部/财政部</td>
+                            <td>预警指挥类专项国债约120-150亿元/年（2026年），按31省推算</td>
+                            <td><span class="badge badge-green">&#9989; 地方已落地</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>应急航空救援装备</strong></td>
+                            <td>政策明确</td>
+                            <td>租购并举，航空救援网络建设总规模预计超200亿元</td>
+                            <td><span class="badge badge-blue">&#9654; 框架明确</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>安全生产责任险</strong></td>
+                            <td>应急管理部</td>
+                            <td>扩大高危行业覆盖 + 快速理赔预赔付机制，保费规模有望翻倍</td>
+                            <td><span class="badge badge-green">&#9989; 配套制度落地</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>政府性融资担保</strong></td>
+                            <td>政策明确</td>
+                            <td>引导为安全应急装备企业提供担保，撬动社会资本</td>
+                            <td><span class="badge badge-orange">&#9203; 待细化</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>一级市场</strong></td>
+                            <td>IT桔子/企名片</td>
+                            <td>2025年安全应急领域融资超50起；无人机+AI监测赛道活跃度最高</td>
+                            <td><span class="badge badge-green">&#9989; 资本已验证</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 信号二：试点结果</h3>
+                <table>
+                    <thead>
+                        <tr><th>试点领域</th><th>代表项目</th><th>完成情况</th><th>推广信号</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>城市生命线安全监测</td>
+                            <td>合肥/杭州/成都城市生命线工程</td>
+                            <td><span class="badge badge-green">超预期</span></td>
+                            <td>住建部已纳入城市更新标准，全国复制在即</td>
+                        </tr>
+                        <tr>
+                            <td>智慧应急指挥平台</td>
+                            <td>多省"互联网+执法"系统试点</td>
+                            <td><span class="badge badge-green">达标</span></td>
+                            <td>政策明确向乡镇延伸，下沉市场打开</td>
+                        </tr>
+                        <tr>
+                            <td>无人机应急救援</td>
+                            <td>四川/甘肃低空+应急救援实战</td>
+                            <td><span class="badge badge-green">超预期</span></td>
+                            <td>"1小时航空救援网络"推进，标准化场景铺开</td>
+                        </tr>
+                        <tr>
+                            <td>卫星遥感监测预警</td>
+                            <td>全国自然灾害综合风险监测平台</td>
+                            <td><span class="badge badge-green">达标</span></td>
+                            <td>空天地立体监测体系明确写入规划</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3: Timeline & Market Review -->
+            <div class="section">
+                <h2><span class="section-icon">3</span>时间线演进与板块复盘</h2>
+
+                <h3>3.1 安全应急装备产业政策时间线</h3>
+                <table>
+                    <thead>
+                        <tr><th>时间</th><th>事件</th><th>产业意义</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2018.03</strong></td>
+                            <td>应急管理部挂牌成立</td>
+                            <td>从分散管理走向集中统筹，为产业发展奠定体制基础</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023.10</strong></td>
+                            <td>五部委联合印发《安全应急装备重点领域发展行动计划（2023-2025）》</td>
+                            <td>首次将安全应急装备列为独立产业方向，制定量化目标</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2024-2025</strong></td>
+                            <td>多省启动国债支撑的预警指挥/航空救援项目采购</td>
+                            <td>地方资金落地，企业订单开始兑现</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.05.21</strong></td>
+                            <td>国务院常务会议审议通过本规划</td>
+                            <td>从部委级上升到国务院最高级别</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.06.08</strong></td>
+                            <td>国务院正式印发《现代化应急体系建设"十五五"规划》</td>
+                            <td><strong>"壮大安全应急装备产业"专节写入，产业进入五年重仓期</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026.06.24-26</strong></td>
+                            <td>第二届低空经济暨无人系统应急应用技术创新展览会（成都）</td>
+                            <td>标准/装备/应用加速对接</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026-2030（预期）</strong></td>
+                            <td>地方政府配套实施细则密集出台 + "久安"大模型系列发布 + 安全应急装备制造创新中心建成</td>
+                            <td>产业链订单爆发期</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.2 A股板块趋势复盘</h3>
+                <table>
+                    <thead>
+                        <tr><th>阶段</th><th>时间区间</th><th>领涨细分</th><th>业绩驱动</th><th>资金行为</th><th>核心逻辑</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-orange">概念炒作期</span></td>
+                            <td>2023-2024</td>
+                            <td>安防设备、消防器材</td>
+                            <td>预期先行，业绩未验证</td>
+                            <td>游资主导</td>
+                            <td>应急管理部成立+五部委行动计划</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-green">订单落地期</span></td>
+                            <td>2024-2025</td>
+                            <td>城市生命线监测、预警平台</td>
+                            <td>地方国债项目落地，部分企业订单增50%+</td>
+                            <td>公募开始加仓</td>
+                            <td>国债资金释放 + 试点超预期</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-blue">政策+业绩双驱动</span></td>
+                            <td><strong>2026-2027（当前起点）</strong></td>
+                            <td><strong>航空救援装备、AI+应急、低空+应急</strong></td>
+                            <td>五年规划框架锁定，订单从"试点"走向"全覆盖"</td>
+                            <td>机构重仓配置</td>
+                            <td>国务院级规划 + 航空救援网络 + AI大模型双催化</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 16px;"><strong>业绩维度：</strong>辰安科技2025年新签订单同比增长约40%，城市生命线业务覆盖城市从个位数增至30+；海康威视应急装备四款入选工信部推广目录，重点场景渗透率提升；纵横股份无人机应急服务收入2025年同比翻倍。预计2026年在应急专项国债和十五五规划双催化下，板块营收增速有望加速至30%+。</p>
+                <p><strong>资金维度：</strong>截至2026年一季度，主动偏股型基金对安全应急相关标的持仓占比仍低（约0.3%），处于低配状态，有显著加仓空间。中证机器人指数近一年累计涨36.85%，相关智能装备标的受关注度提升。</p>
+            </div>
+
+            <!-- Section 4: ETF & Stocks -->
+            <div class="section">
+                <h2><span class="section-icon">4</span>ETF与核心标的匹配</h2>
+
+                <h3>4.1 ETF推荐列表</h3>
+                <table>
+                    <thead>
+                        <tr><th>ETF代码</th><th>名称</th><th>匹配逻辑</th><th>匹配度</th><th>操作建议</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>159670</strong></td>
+                            <td>低空经济ETF</td>
+                            <td>覆盖无人机/航空器制造，直接受益"低空+应急救援"场景拓展</td>
+                            <td><span class="badge badge-green">高</span></td>
+                            <td><strong>重点配置</strong>：航空救援网络建设明确定量目标，场景化落地加速</td>
+                        </tr>
+                        <tr>
+                            <td><strong>515050</strong></td>
+                            <td>人工智能ETF</td>
+                            <td>AI+应急融合，"久安"大模型底座建设带动算力/算法需求</td>
+                            <td><span class="badge badge-blue">中高</span></td>
+                            <td><strong>卫星配置</strong>：智慧应急是AI落地新场景，中长期确定性高</td>
+                        </tr>
+                        <tr>
+                            <td><strong>512930</strong></td>
+                            <td>人工智能AIETF</td>
+                            <td>对标智慧应急行动中的场景化AI应用（异常行为感知、预警等）</td>
+                            <td><span class="badge badge-blue">中高</span></td>
+                            <td>作为AI方向的替代选择，跟踪标的有差异</td>
+                        </tr>
+                        <tr>
+                            <td><strong>516020</strong></td>
+                            <td>高端装备ETF</td>
+                            <td>含智能监测设备/特种装备，间接受益安全应急装备国产替代</td>
+                            <td><span class="badge badge-orange">中</span></td>
+                            <td>间接映射，但成分股重叠度高</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);">&#9432; 注：目前A股尚无纯"安全应急装备"主题ETF。低空经济ETF（159670）是场景匹配度最高的选择；AI类ETF是政策催化最强的间接受益方向。</p>
+
+                <h3>4.2 最直接受益标的（优先级排序）</h3>
+
+                <div class="priority-item priority-1">
+                    <div class="priority-badge">&#129351;</div>
+                    <div class="priority-content">
+                        <h4>第一优先级：航空救援/低空应急装备</h4>
+                        <p><strong>受益逻辑：</strong>规划首次明确"1小时航空救援网络"+ 拓展"低空+应急救援""低空+应急侦测"场景 + 租购并举增加航空器配备。是全文最超预期的增量方向。</p>
+                        <p><strong>核心催化：</strong>低空经济政策持续加码 + 6月成都无人系统应急展 + 地方航空救援场站基建招标</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">纵横股份 (688070) - 无人机应急服务龙头</span>
+                            <span class="stock-tag">中无人机 (600760) - 大型无人机平台</span>
+                            <span class="stock-tag">航天彩虹 (002389) - 军民两用无人机</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-2">
+                    <div class="priority-badge">&#129352;</div>
+                    <div class="priority-content">
+                        <h4>第二优先级：智慧应急+城市生命线</h4>
+                        <p><strong>受益逻辑：</strong>规划专节要求"促进人工智能与应急管理深度融合"+ "久安"系列大模型+ 城市桥梁/隧道安全监测 + 立体监测体系建设。城市生命线从试点走向全国推广。</p>
+                        <p><strong>核心催化：</strong>国债资金持续下达 + 住建部城市更新规划联动 + 省级平台招标集中释放</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">辰安科技 (300523) - 城市生命线龙头</span>
+                            <span class="stock-tag">海康威视 (002415) - 视频感知+应急装备</span>
+                            <span class="stock-tag">震有科技 (688418) - 应急通信/卫星互联</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-3">
+                    <div class="priority-badge">&#129353;</div>
+                    <div class="priority-content">
+                        <h4>第三优先级：消防装备+安全生产检测</h4>
+                        <p><strong>受益逻辑：</strong>系留无人机消防 + 举高消防车配备 + "设备换新、机器换人、生产换线"+ 先进技术装备推广目录 + 落后装备淘汰目录。</p>
+                        <p><strong>核心催化：</strong>安全生产费用提取强制化 + 化工老旧装置淘汰倒计时 + 高层建筑消防升级</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">海能达 (002583) - 应急通信终端</span>
+                            <span class="stock-tag">先河环保 (300137) - 环境安全监测</span>
+                            <span class="stock-tag">大华股份 (002236) - 安防/消防监测</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="priority-item priority-4">
+                    <div class="priority-badge" style="background: var(--primary); color: white;">4</div>
+                    <div class="priority-content">
+                        <h4>第四优先级：安全生产责任险+巨灾保险</h4>
+                        <p><strong>受益逻辑：</strong>安责险扩大高危行业覆盖 + 巨灾保险稳步实施 + 重大事故快速理赔/预赔付机制。险种扩容带动保费规模增长。</p>
+                        <p><strong>核心催化：</strong>应急管理部后续配套文件 + 地方"灾害救助+金融保险"试点</p>
+                        <div class="stock-tags">
+                            <span class="stock-tag">中国人保 (601319) - 安责险/巨灾险龙头</span>
+                            <span class="stock-tag">中国太保 (601601) - 政保业务占比高</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Risk -->
+            <div class="section">
+                <h2><span class="section-icon">5</span>风险提示</h2>
+
+                <div class="risk-grid">
+                    <div class="risk-item medium">
+                        <h4 style="color: var(--accent);">&#128308; 板块拥挤度</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">当前安全应急板块公募持仓约0.3%，拥挤度低，但低空经济方向已累积一定涨幅</p>
+                        <span style="display: inline-block; margin-top: 8px; padding: 6px 14px; background: #fff3cd; color: #856404; border-radius: 20px; font-weight: 600;">&#128993; 低-中</span>
+                    </div>
+                    <div class="risk-item high">
+                        <h4 style="color: var(--warning);">&#128308; 业绩验证风险</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">规划刚印发，地方配套落地有2-6个月时滞，2026年中报业绩兑现节奏可能不及预期</p>
+                        <span style="display: inline-block; margin-top: 8px; padding: 6px 14px; background: #f8d7da; color: #721c24; border-radius: 20px; font-weight: 600;">&#128308; 中高</span>
+                    </div>
+                    <div class="risk-item medium">
+                        <h4 style="color: var(--accent);">&#128308; 财政落地节奏</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">地方财力分化，东部省份采购更积极，中西部可能依赖转移支付影响落地节奏</p>
+                        <span style="display: inline-block; margin-top: 8px; padding: 6px 14px; background: #fff3cd; color: #856404; border-radius: 20px; font-weight: 600;">&#128993; 中</span>
+                    </div>
+                    <div class="risk-item medium">
+                        <h4 style="color: var(--accent);">&#128308; 纯正ETF缺失风险</h4>
+                        <p style="font-size: 14px; color: var(--text-secondary);">尚无纯安全应急装备ETF，只能通过低空经济/AI等间接配置，跟踪效率打折扣</p>
+                        <span style="display: inline-block; margin-top: 8px; padding: 6px 14px; background: #fff3cd; color: #856404; border-radius: 20px; font-weight: 600;">&#128993; 中</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="conclusion-box">
+                <h3>&#127919; 核心结论</h3>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--secondary); color: white;">1</span>
+                    <div><strong>政策层级质变：</strong>安全应急装备产业从"五部委行动计划"跃升为"国务院十五五规划专节"，这是产业地位的根本性提升，意味着五年维度的政策保障和资金锁定。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--primary); color: white;">2</span>
+                    <div><strong>最超预期亮点：</strong>"低空+应急救援" 场景从零星试点到国家航空救援网络全覆盖，1小时航空圈+租购并举模式打开无人机/航空器增量市场超200亿元，是全文最大的边际增量。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: var(--accent); color: white;">3</span>
+                    <div><strong>最佳投资窗口：</strong>规划印发后6-12个月（2026H2至2027H1），地方配套实施细则密集出台+国债项目招标集中释放，是订单兑现的核心窗口期。</div>
+                </div>
+                <div class="conclusion-item">
+                    <span class="conclusion-icon" style="background: #6c757d; color: white;">4</span>
+                    <div><strong>首选配置：</strong>低空经济ETF（159670）作为航空救援网络建设的直接映射 + 辰安科技（城市生命线龙头，试点转全国推广） + 纵横股份（无人机应急服务，业绩已验证高增长）。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="report-footer">
+            <p><strong>声明：</strong>本报告仅为政策分析与产业趋势研究框架展示，不构成任何投资建议。市场有风险，投资需谨慎。投资者应独立决策，自负盈亏。</p>
+        </div>
+    </div>
+</body>
+</html>
